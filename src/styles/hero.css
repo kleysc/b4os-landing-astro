@@ -61,7 +61,7 @@
 
 /* Resto de estilos mantienen las mismas propiedades... */
 .hero-title {
-    font-size: var(--font-size-3xl, 2.25rem);
+    font-size: var(--font-size-2xl, 2.25rem);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: var(--spacing-xl, 2rem);
