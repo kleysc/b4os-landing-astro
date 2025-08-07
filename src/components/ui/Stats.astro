@@ -1,0 +1,18 @@
+---
+export interface Props {
+  stats: Record<string, number>;
+  labels: Record<string, string>;
+  class?: string;
+}
+
+const { stats, labels, class: className = '' } = Astro.props;
+---
+
+<div class={`objectives-stats ${className}`} role="complementary" aria-label="Estadísticas del programa">
+    {Object.entries(stats).map(([key, value]) => (
+        <div class="stat">
+            <span class="stat-number">{value}</span>
+            <span class="stat-label" set:html={labels[key]}></span>
+        </div>
+    ))}
+</div>

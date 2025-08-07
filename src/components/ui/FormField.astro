@@ -1,0 +1,56 @@
+---
+export interface Props {
+  field: {
+    type: 'text' | 'email' | 'url' | 'select' | 'textarea';
+    id: string;
+    name: string;
+    label: string;
+    required?: boolean;
+    help?: string;
+    placeholder?: string;
+    disabled?: boolean;
+    options?: Array<{ value: string; text: string }>;
+  };
+}
+
+const { field } = Astro.props;
+---
+
+<div class="form-group">
+    <label for={field.id}>{field.label}</label>
+    
+    {field.type === 'select' ? (
+        <select 
+            id={field.id} 
+            name={field.name} 
+            required={field.required}
+            disabled={field.disabled}
+            aria-describedby={`${field.id}-help`}
+        >
+            {field.options?.map(option => (
+                <option value={option.value}>{option.text}</option>
+            ))}
+        </select>
+    ) : field.type === 'textarea' ? (
+        <textarea 
+            id={field.id} 
+            name={field.name} 
+            placeholder={field.placeholder}
+            required={field.required}
+            aria-describedby={`${field.id}-help`}
+        ></textarea>
+    ) : (
+        <input 
+            type={field.type as any} 
+            id={field.id} 
+            name={field.name} 
+            placeholder={field.placeholder}
+            required={field.required}
+            aria-describedby={`${field.id}-help`}
+        />
+    )}
+    
+    {field.help && (
+        <small id={`${field.id}-help`}>{field.help}</small>
+    )}
+</div>

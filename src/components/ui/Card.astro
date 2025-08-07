@@ -1,0 +1,38 @@
+---
+export interface Props {
+  variant?: 'default' | 'program' | 'benefit' | 'alumni' | 'partner';
+  class?: string;
+  padding?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  variant = 'default',
+  class: className = '',
+  padding = 'md'
+} = Astro.props;
+
+const baseClasses = 'card';
+const variantClasses = {
+  default: 'card-default',
+  program: 'program-card',
+  benefit: 'benefit-card',
+  alumni: 'alumni-card',
+  partner: 'partner-card'
+};
+const paddingClasses = {
+  sm: 'p-4',
+  md: 'p-6',
+  lg: 'p-8'
+};
+
+const classes = [
+  baseClasses,
+  variantClasses[variant],
+  paddingClasses[padding],
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={classes}>
+  <slot />
+</div>
