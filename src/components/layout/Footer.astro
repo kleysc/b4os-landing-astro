@@ -1,0 +1,77 @@
+---
+import Icon from '../ui/Icon.astro';
+import { footerData } from '../../data/footer.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<footer id="contacto" class={`footer ${className}`} role="contentinfo">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img 
+                        src={footerData.brand.logo} 
+                        alt={footerData.brand.alt} 
+                        class="footer-logo" 
+                        width={footerData.brand.width} 
+                        height={footerData.brand.height}
+                    >
+                </div>
+                <p><strong>{footerData.brand.description}</strong></p>
+            </div>
+            
+            <nav class="footer-section" aria-label="Enlaces rápidos">
+                <h4>{footerData.quickLinks.title}</h4>
+                <ul class="footer-links">
+                    {footerData.quickLinks.links.map(link => (
+                        <li><a href={link.href}>{link.text}</a></li>
+                    ))}
+                </ul>
+            </nav>
+            
+            <nav class="footer-section" aria-label="Recursos externos">
+                <h4>{footerData.resources.title}</h4>
+                <ul class="footer-links">
+                    {footerData.resources.links.map(link => (
+                        <li><a href={link.href} target="_blank" rel="noopener">{link.text}</a></li>
+                    ))}
+                </ul>
+            </nav>
+            
+            <div class="footer-section">
+                <h4>{footerData.contact.title}</h4>
+                <div class="contact-info">
+                    <p>
+                        <Icon name="heroicons:envelope-solid" size={24} />
+                        <a href={`mailto:${footerData.contact.email.address}`}>{footerData.contact.email.label}</a>
+                    </p>
+                    <div class="footer-social">
+                        {footerData.contact.social.map(social => (
+                            <a href={social.href} aria-label={social.label} target="_blank" rel="noopener">
+                                <Icon name={social.icon} size={24} />
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <div>
+                    <p>{footerData.bottom.copyright}</p>
+                </div>
+                <nav class="footer-legal" aria-label="Enlaces legales">
+                    {footerData.bottom.legal.map(link => (
+                        <a href={link.href} rel="nofollow">{link.text}</a>
+                    ))}
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,29 @@
+---
+import { navigationLinks } from '../../data/navigation.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<nav class={`nav ${className}`} role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="#inicio" class="nav-link" aria-label="Ir al inicio de B4OS">
+                <img src="/b4os.png" alt="B4OS - Bitcoin 4 Open Source Logo" class="logo" width="64" height="64">
+            </a>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            {navigationLinks.map(link => (
+                <a href={link.href} class="nav-link">{link.text}</a>
+            ))}
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>

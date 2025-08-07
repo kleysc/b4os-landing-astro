@@ -1,0 +1,13 @@
+---
+import Navigation from './Navigation.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<header class={`header ${className}`} role="banner">
+    <Navigation />
+</header>
