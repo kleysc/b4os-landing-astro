@@ -35,8 +35,8 @@
 }
 
 .terms-header h1 {
-    font-size: var(--font-size-4xl);
-    font-weight: 700;
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
     color: var(--text-dark);
 }
 
@@ -63,6 +63,35 @@
     color: var(--text-light);
     line-height: 1.7;
     font-size: var(--font-size-base);
+}
+
+.phase-box {
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.phase-box h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.phase-box ul {
+    margin-left: var(--spacing-lg);
+    margin-top: var(--spacing-sm);
+}
+
+.phase-box li {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-left: var(--spacing-sm);
+}
+
+.list-disc {
+    list-style-type: disc;
 }
 
 .terms-contact {
