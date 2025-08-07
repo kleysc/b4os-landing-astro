@@ -166,3 +166,5 @@ Thumbs.db
 
 # Ignore specific files
 *.bk
+
+*.trunk/
