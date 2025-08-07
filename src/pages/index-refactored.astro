@@ -1,0 +1,57 @@
+---
+// src/pages/index-refactored.astro
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import Objectives from '../components/sections/Objectives.astro';
+import Alumni from '../components/sections/Alumni.astro';
+import Residencies from '../components/sections/Residencies.astro';
+import Timeline from '../components/sections/Timeline.astro';
+import Registration from '../components/sections/Registration.astro';
+import Benefits from '../components/sections/Benefits.astro';
+import Partnerships from '../components/sections/Partnerships.astro';
+
+// Metadata específica para la página de inicio
+const pageTitle = "B4OS 2025 - Programa Gratuito de Formación Bitcoin para Desarrolladores Senior | Bitcoin 4 Open Source";
+const pageDescription = "Únete al programa B4OS 2025: formación gratuita e intensiva en Bitcoin Core y Lightning Network para desarrolladores senior de América Latina, Caribe y España. Registro abierto agosto 2025.";
+const pageKeywords = "B4OS 2025, programa Bitcoin desarrolladores, formación Bitcoin gratuita, Bitcoin Core desarrollo, Lightning Network, desarrolladores senior, América Latina Bitcoin, Bitcoin España, residencias Bitcoin, mentoría Bitcoin, FOSS Bitcoin";
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  ogImage="/og-image-home.jpg"
+>
+    <!-- Header con Navigation -->
+    <Header />
+
+    <!-- Hero Section -->
+    <Hero />
+
+    <!-- Objectives Section -->
+    <Objectives />
+
+    <!-- Alumni Section -->
+    <Alumni />
+
+    <!-- Residencies Section -->
+    <Residencies />
+
+    <!-- Timeline Section -->
+    <Timeline />
+
+    <!-- Registration Section -->
+    <Registration />
+
+    <!-- Benefits Section -->
+    <Benefits />
+
+    <!-- Partnerships Section -->
+    <Partnerships />
+
+    <!-- Footer -->
+    <Footer />
+
+</Layout>
