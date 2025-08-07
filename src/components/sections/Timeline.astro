@@ -1,0 +1,53 @@
+---
+import { timelineData } from '../../data/timeline.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="cronograma" class={`timeline ${className}`}>
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">{timelineData.title}</h2>
+            <p class="section-subtitle">
+                {timelineData.subtitle}
+            </p>
+        </header>
+        <div class="timeline-container">
+            {timelineData.events.map(event => (
+                <article class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <p class="timeline-subdate">{event.date}</p>
+                        <h3>{event.title}</h3>
+                        <p>{event.description}</p>
+                        
+                        {event.routes && (
+                            <ul>
+                                {event.routes.map(route => (
+                                    <li><strong>{route}</strong></li>
+                                ))}
+                            </ul>
+                        )}
+                        
+                        {event.highlight && (
+                            <div class="timeline-highlight">
+                                <p>
+                                    {event.highlight.icon} <strong>{event.highlight.title}</strong><br>
+                                    <strong>{event.highlight.subtitle}</strong>
+                                </p>
+                            </div>
+                        )}
+                        
+                        {event.note && (
+                            <p>{event.note}</p>
+                        )}
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>

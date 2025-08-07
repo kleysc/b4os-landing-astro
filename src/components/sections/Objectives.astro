@@ -1,0 +1,42 @@
+---
+import Card from '../ui/Card.astro';
+import Icon from '../ui/Icon.astro';
+import { objectivesData } from '../../data/objectives.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="objectives" class={`objectives ${className}`}>
+    <div class="container">
+        <div class="objectives-content">
+            <div class="objectives-media">
+                <img src={objectivesData.image.src} 
+                    alt={objectivesData.image.alt}
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            </div>
+
+            <div>
+                <h3 class="objectives-title-stats">
+                    {objectivesData.title}
+                </h3>
+            </div>
+
+            <div class="program-grid">
+                {objectivesData.cards.map(card => (
+                    <Card variant="program">
+                        <div class="program-icon" aria-hidden="true">
+                            <Icon name={card.icon} size={card.iconSize} />
+                        </div>
+                        <h3>{card.title}</h3>
+                        <p>{card.description}</p>
+                    </Card>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

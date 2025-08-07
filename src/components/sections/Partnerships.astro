@@ -1,0 +1,110 @@
+---
+import Card from '../ui/Card.astro';
+import { partnershipsData } from '../../data/partnerships.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="alianzas" class={`partnerships ${className}`}>
+    <div class="container">
+        <div class="partnerships-content">
+            <!-- Header principal -->
+            <header class="section-header">
+                <h2 class="section-title">{partnershipsData.title}</h2>
+                <p class="section-subtitle">
+                    {partnershipsData.subtitle}
+                </p>
+            </header>
+
+            <!-- Sponsor Principal -->
+            <div class="main-sponsor">
+                <header class="sponsor-header">
+                    <p class="sponsor-highlight">
+                        {partnershipsData.mainSponsor.title}
+                    </p>
+                </header>
+                <article class="main-sponsor-card">
+                    <a href={partnershipsData.mainSponsor.sponsor.url} target="_blank" rel="noopener">
+                        <img 
+                            src={partnershipsData.mainSponsor.sponsor.logo} 
+                            alt={partnershipsData.mainSponsor.sponsor.alt} 
+                            class="sponsor-logo" 
+                            width={partnershipsData.mainSponsor.sponsor.width} 
+                            height={partnershipsData.mainSponsor.sponsor.height} 
+                            loading="lazy"
+                        >
+                    </a>
+                </article>
+            </div>
+
+            <!-- Aliados Estratégicos -->
+            <div class="strategic-partners">
+                <header class="strategic-header">
+                    <h3 class="strategic-title">{partnershipsData.strategicPartners.title}</h3>
+                </header>
+
+                <div class="partners-grid">
+                    {partnershipsData.strategicPartners.partners.map(partner => (
+                        <article class="partner-card">
+                            <a href={partner.url} target="_blank" rel="noopener">
+                                <img src={partner.logo} alt={partner.alt} class="partner-logo" loading="lazy">
+                            </a>
+                            <p class="partner-description">
+                                {partner.description}
+                            </p>
+                        </article>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Conferencias que nos apoyan -->
+            <article class="conferences-support">
+                <header class="strategic-header">
+                    <h3 class="strategic-title">{partnershipsData.conferences.title}</h3>
+                </header>
+                <div class="conferences-logos" role="group" aria-label="Logos de conferencias que apoyan B4OS">
+                    {partnershipsData.conferences.conferences.map(conference => (
+                        <a href={conference.url} target="_blank" rel="noopener">
+                            {conference.isText ? (
+                                <span class="font-bitcoin">{conference.name}</span>
+                            ) : (
+                                <img 
+                                    src={conference.logo} 
+                                    alt={conference.alt} 
+                                    class="conference-logo" 
+                                    height={conference.height} 
+                                    loading="lazy"
+                                >
+                            )}
+                        </a>
+                    ))}
+                </div>
+            </article>
+
+            <!-- Comunidades -->
+            <article class="communities-support">
+                <header class="strategic-header">
+                    <h3 class="strategic-title">{partnershipsData.communities.title}</h3>
+                </header>
+                <div class="communities-logos" role="group" aria-label="Logos de comunidades que apoyan B4OS">
+                    {partnershipsData.communities.communities.map(community => (
+                        <a href={community.url} target="_blank" rel="noopener">
+                            <img 
+                                src={community.logo} 
+                                alt={community.alt} 
+                                class="community-logo" 
+                                width={community.width} 
+                                height={community.height} 
+                                loading="lazy"
+                            >
+                        </a>
+                    ))}
+                </div>
+            </article>
+        </div>
+    </div>
+</section>

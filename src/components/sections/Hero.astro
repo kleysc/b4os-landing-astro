@@ -1,0 +1,35 @@
+---
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="inicio" class={`hero-section ${className}`}>
+    <div class="hero-container">
+        <!-- Contenido del lado izquierdo -->
+        <div class="hero-content">
+            <h1 class="hero-title-main">Bitcoin 4 Open Source</h1>
+            <h2 class="hero-title">
+                <span class="hero-title-sub">Programa gratuito de entrenamiento técnico en Bitcoin para desarrolladores</span>
+            </h2>
+            <p class="hero-description">
+                Únete a nuestra comunidad de desarrolladores Bitcoin y comienza tu journey en el ecosistema de código abierto.
+            </p>
+            <div class="hero-actions">
+                <Button href="#registro" variant="primary" rel="nofollow">
+                    Aceptar el Reto
+                </Button>
+                <Button href="#residencias" variant="secondary">
+                    Conocer las Residencias
+                </Button>
+            </div>
+        </div>
+        
+        <!-- Imagen de fondo (se maneja con CSS) -->
+        <div class="hero-background" aria-hidden="true"></div>
+    </div>
+</section>

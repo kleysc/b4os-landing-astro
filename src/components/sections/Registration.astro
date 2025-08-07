@@ -1,0 +1,58 @@
+---
+import Button from '../ui/Button.astro';
+import FormField from '../ui/FormField.astro';
+import { registrationData } from '../../data/registration.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="registro" class={`registration ${className}`}>
+    <div class="container">
+        <div class="registration-content">
+            <div class="registration-info">
+                <h2>{registrationData.title}</h2>
+                <p>
+                    {registrationData.description}
+                </p>                    
+                <div class="requirements">
+                    <h3>{registrationData.requirements.title}</h3>
+                    <ul>
+                        {registrationData.requirements.items.map(item => (
+                            <li><strong>{item.split(' ').slice(0, -1).join(' ')}</strong> {item.split(' ').slice(-1)[0]}</li>
+                        ))}
+                    </ul>
+                </div>
+                <div class="registration-period">
+                    <div class="period-badge">
+                        <span><strong>{registrationData.period.text}</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="registration-form-container">
+                <form class="registration-form" id="registrationForm" role="form" aria-label="Formulario de registro B4OS 2025">
+                    <h3>{registrationData.form.title}</h3>
+                    
+                    {registrationData.form.fields.map(field => (
+                        <FormField field={field} />
+                    ))}
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required aria-describedby="terms-help">
+                            <span>Acepto los <a href={registrationData.form.terms.link} target="_blank" rel="noopener">{registrationData.form.terms.text}</a></span>
+                        </label>
+                        <small id="terms-help">Debes aceptar los términos para continuar</small>
+                    </div>
+                    
+                    <Button type="submit" variant="primary" class="btn-full">
+                        {registrationData.form.submit}
+                    </Button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

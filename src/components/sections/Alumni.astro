@@ -1,0 +1,62 @@
+---
+import Card from '../ui/Card.astro';
+import Icon from '../ui/Icon.astro';
+import Stats from '../ui/Stats.astro';
+import { alumniData } from '../../data/alumni.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="alumni" class={`alumni ${className}`}>
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">{alumniData.title}</h2>
+            <Stats stats={alumniData.stats} labels={alumniData.statsLabels} />
+            <p class="section-subtitle">
+                {alumniData.subtitle}
+            </p>
+        </header>
+
+        <div class="alumni-grid">
+            {alumniData.alumni.map(alumni => (
+                <article class="alumni-card">
+                    <div class="alumni-avatar">
+                        <img src={alumni.avatar} alt={alumni.alt} loading="lazy">
+                        <div class="alumni-icons">
+                            {alumni.social.map(social => (
+                                <a href={social.url} aria-label={social.label} target="_blank" rel="noopener">
+                                    <Icon name={social.type} size={24} />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div class="alumni-content">
+                        <h3 class="alumni-name">{alumni.name}</h3>
+                        <p class="alumni-description">
+                            {typeof alumni.description.sponsor === 'string' ? (
+                                <span class="sponsor-highlight">{alumni.description.sponsor}</span>
+                            ) : (
+                                <a href={alumni.description.sponsor.url} target="_blank" rel="noopener">
+                                    <span class="sponsor-highlight">{alumni.description.sponsor.name}</span>
+                                </a>
+                            )}
+                            {' '}
+                            {alumni.description.projects.map((project, index) => (
+                                <>
+                                    <span class="project-highlight">{project}</span>
+                                    {index < alumni.description.projects.length - 1 && " y "}
+                                </>
+                            ))}
+                            {alumni.description.note && ` ${alumni.description.note}`}
+                        </p>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>

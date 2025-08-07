@@ -1,0 +1,33 @@
+---
+import Card from '../ui/Card.astro';
+import Icon from '../ui/Icon.astro';
+import { benefitsData } from '../../data/benefits.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="beneficios" class={`benefits ${className}`}>
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">{benefitsData.title}</h2>
+            <p class="section-subtitle">
+                {benefitsData.subtitle}
+            </p>
+        </header>
+        <div class="benefits-grid">
+            {benefitsData.benefits.map(benefit => (
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <Icon name={benefit.icon} size={64} />
+                    </div>
+                    <h3>{benefit.title}</h3>
+                    <p>{benefit.description}</p>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>

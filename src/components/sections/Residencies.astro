@@ -1,0 +1,43 @@
+---
+import Card from '../ui/Card.astro';
+import Icon from '../ui/Icon.astro';
+import { residenciesData } from '../../data/residencies.js';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section id="residencias" class={`program-overview ${className}`}>
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">{residenciesData.title}</h2>
+            <p class="section-subtitle">
+                {residenciesData.subtitle}
+            </p>
+        </header>
+        <div class="program-grid">
+            {residenciesData.residencies.map(residency => (
+                <article class="program-card">
+                    <div class="program-icon" aria-hidden="true">
+                        <Icon name={residency.icon} size={64} />
+                    </div>
+                    <h3>{residency.title}</h3>
+                    <p>
+                        <strong>Duración:</strong> {residency.duration}<br>
+                        <strong>Inicio:</strong> {residency.startDate}<br>
+                        <strong>Ubicación:</strong> {residency.location}<br>
+                    </p>
+                    <p>
+                        {residency.description}
+                    </p>
+                </article>
+            ))}
+        </div>
+        <article style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: var(--font-size-sm);">
+            <p>{residenciesData.disclaimer}</p>
+        </article>
+    </div>
+</section>
