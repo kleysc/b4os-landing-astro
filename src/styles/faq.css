@@ -42,7 +42,7 @@
       font-size: 1.1rem;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: none;
       text-align: left;
       position: relative;
       border-radius: 8px;
@@ -57,7 +57,7 @@
       bottom: 0;
       width: 0;
       background: linear-gradient(90deg, var(--primary-color), transparent);
-      transition: width 0.3s ease;
+      transition: width 0.2s ease, opacity 0.2s ease;
       opacity: 0.1;
       border-radius: 8px 0 0 8px;
   }
@@ -77,7 +77,7 @@
   }
 
   .faq-icon {
-      transition: transform 0.3s ease;
+      transition: none;
       flex-shrink: 0;
       margin-left: 1rem;
       color: var(--text-muted);
