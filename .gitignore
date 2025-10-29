@@ -171,3 +171,4 @@ Thumbs.db
 
 reports/*
 i18n.cache
+.netlify/
