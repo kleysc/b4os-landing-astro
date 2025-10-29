@@ -47,6 +47,7 @@ const reopenDate = import.meta.env.PUBLIC_REGISTRATION_REOPEN_DATE || '2025-10-2
                     <a href="#alumni" class="nav-link">{t.nav.alumni}</a>
                     <a href="#residencias" class="nav-link">{t.nav.residences}</a>
                     <a href="#cronograma" class="nav-link">{t.nav.schedule}</a>
+                    <a href="#programas" class="nav-link">{t.nav.programs || 'Programas'}</a>
                     <a href="#registro" class="nav-link">{t.nav.register}</a>
                     <a href="#beneficios" class="nav-link">{t.nav.benefits}</a>
                     <!-- <a href="#alianzas" class="nav-link">{t.nav.alliances}</a>
@@ -452,7 +453,75 @@ const reopenDate = import.meta.env.PUBLIC_REGISTRATION_REOPEN_DATE || '2025-10-2
                         <h3>{t.timeline.grantees.title}</h3>
                         <p>{t.timeline.grantees.description}</p>
                     </div>
-                </article>            
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Preview Section -->
+    <section id="programas" class="programs-preview">
+        <div class="container">
+            <header class="section-header">
+                <h2 class="section-title">{t.programsPreview?.title || 'Programas B4OS'}</h2>
+                <p class="section-subtitle">{t.programsPreview?.subtitle || 'Conoce nuestras cohortes disponibles'}</p>
+            </header>
+
+            <div class="programs-preview-grid">
+                <!-- B4OS 2024 - Completado -->
+                <div class="program-card-preview" data-status="completed">
+                    <span class="status-badge status-completed">
+                        {t.programs?.statusLabels?.completed || 'Completado'}
+                    </span>
+                    <h3 class="program-title">B4OS 2024</h3>
+                    <div class="program-date">{t.programs?.items?.b4os2024?.date || 'Marzo - Junio 2024'}</div>
+                    <p class="program-description">
+                        {t.programs?.items?.b4os2024?.description || 'Primera cohorte completada exitosamente en Buenos Aires.'}
+                    </p>
+                    <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/b4os-2024`} class="btn btn-secondary">
+                        {t.programs?.items?.b4os2024?.cta || 'Ver Resultados'}
+                    </a>
+                </div>
+
+                <!-- B4OS 2025-1 - En Progreso -->
+                <div class="program-card-preview" data-status="in-progress">
+                    <span class="status-badge status-in-progress">
+                        {t.programs?.statusLabels?.['in-progress'] || 'En Curso'}
+                    </span>
+                    <h3 class="program-title">B4OS 2025-1</h3>
+                    <div class="program-date">{t.programs?.items?.b4os2025_1?.date || 'En desarrollo'}</div>
+                    <p class="program-description">
+                        {t.programs?.items?.b4os2025_1?.description || 'Cohorte actualmente en progreso.'}
+                    </p>
+                    <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/b4os-2025-1`} class="btn btn-secondary">
+                        {t.programs?.items?.b4os2025_1?.cta || 'Ver Progreso'}
+                    </a>
+                </div>
+
+                <!-- B4OS 2025-2 - ABIERTO -->
+                <div class="program-card-preview program-card-highlight" data-status="open">
+                    <span class="status-badge status-open">
+                        {t.programs?.statusLabels?.open || 'Abierto'}
+                    </span>
+                    <h3 class="program-title">
+                        <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/b4os-2025-2`} class="program-title-link">
+                            B4OS 2025-2
+                        </a>
+                    </h3>
+                    <div class="program-date">{t.programs?.items?.b4os2025_2?.date || 'Noviembre 2025'}</div>
+                    <p class="program-description">
+                        {t.programs?.items?.b4os2025_2?.description || 'Inscripciones abiertas hasta el 22 de noviembre 2025.'}
+                    </p>
+                    <a href="#registro" class="btn btn-primary">
+                        {t.programs?.items?.b4os2025_2?.cta || 'Inscribirme'}
+                    </a>
+                </div>
+            </div>
+
+            <div class="programs-preview-cta">
+                <a href={`/${locale === 'es' ? '' : locale + '/'}programs`} class="btn btn-outline">
+                    {t.programsPreview?.viewAll || 'Ver todos los programas'}
+                    <Icon name="heroicons:arrow-right" size={20} />
+                </a>
             </div>
         </div>
     </section>
