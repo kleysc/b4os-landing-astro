@@ -1,0 +1,247 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getTranslation } from '../../../i18n/utils.js';
+import '../../../styles/enroll.css';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const cohorts = [
+    'b4os-2024',
+    'b4os-2025-1',
+    'b4os-2025-2',
+    'b4os-2026-1',
+    'b4os-2026-2',
+    'conferencia-b4os-2026',
+    'b4os-2027'
+  ];
+
+  const paths = [];
+
+  for (const cohort of cohorts) {
+    // Spanish (default, no prefix)
+    paths.push({ params: { cohort } });
+  }
+
+  return paths;
+}
+
+const { cohort } = Astro.params;
+const locale = 'pt';
+const t = getTranslation(locale);
+
+// Cohort-specific data
+const cohortData = {
+  'b4os-2024': {
+    title: 'B4OS 2024',
+    subtitle: t.enroll?.b4os2024?.subtitle || 'Programa completado - Buenos Aires',
+    status: 'completed',
+    dates: t.enroll?.b4os2024?.dates || 'Marzo - Junio 2024',
+    description: t.enroll?.b4os2024?.description || 'La primera cohorte de B4OS fue completada exitosamente en Buenos Aires con desarrolladores de toda América Latina.',
+    highlights: [
+      t.enroll?.b4os2024?.highlight1 || '15 desarrolladores graduados',
+      t.enroll?.b4os2024?.highlight2 || 'Residencia presencial de 2 semanas',
+      t.enroll?.b4os2024?.highlight3 || 'Múltiples grants otorgados'
+    ]
+  },
+  'b4os-2025-1': {
+    title: 'B4OS 2025-1',
+    subtitle: t.enroll?.b4os2025_1?.subtitle || 'Programa en desarrollo',
+    status: 'in-progress',
+    dates: t.enroll?.b4os2025_1?.dates || 'En progreso',
+    description: t.enroll?.b4os2025_1?.description || 'Cohorte actualmente en desarrollo con participantes trabajando en contribuciones a Bitcoin Core y Lightning Network.',
+    highlights: [
+      t.enroll?.b4os2025_1?.highlight1 || 'Programa activo',
+      t.enroll?.b4os2025_1?.highlight2 || 'Contribuciones en curso',
+      t.enroll?.b4os2025_1?.highlight3 || 'Mentorías especializadas'
+    ]
+  },
+  'b4os-2025-2': {
+    title: 'B4OS 2025-2',
+    subtitle: t.enroll?.b4os2025_2?.subtitle || 'Inscripciones Abiertas',
+    status: 'open',
+    dates: t.enroll?.b4os2025_2?.dates || 'Noviembre 2025',
+    description: t.enroll?.b4os2025_2?.description || 'Las inscripciones para esta cohorte están abiertas. Únete a la próxima generación de desarrolladores Bitcoin.',
+    highlights: [
+      t.enroll?.b4os2025_2?.highlight1 || 'Registro abre en octubre 2025',
+      t.enroll?.b4os2025_2?.highlight2 || 'Enfoque en Bitcoin Core',
+      t.enroll?.b4os2025_2?.highlight3 || 'Residencia en Sudamérica'
+    ]
+  },
+  'b4os-2026-1': {
+    title: 'B4OS Enero 2026-1',
+    subtitle: t.enroll?.b4os2026_1?.subtitle || 'Partnership con Chaincode Labs',
+    status: 'upcoming',
+    dates: t.enroll?.b4os2026_1?.dates || 'Enero 2026',
+    description: t.enroll?.b4os2026_1?.description || 'Programa especial en colaboración con Chaincode Labs. Las inscripciones abren el 1 de diciembre.',
+    highlights: [
+      t.enroll?.b4os2026_1?.highlight1 || 'Partnership con Chaincode Labs',
+      t.enroll?.b4os2026_1?.highlight2 || 'Mentores de clase mundial',
+      t.enroll?.b4os2026_1?.highlight3 || 'Registro abre el 1 de diciembre'
+    ]
+  },
+  'b4os-2026-2': {
+    title: 'B4OS 2026-2',
+    subtitle: t.enroll?.b4os2026_2?.subtitle || 'En planificación',
+    status: 'upcoming',
+    dates: t.enroll?.b4os2026_2?.dates || 'Marzo 2026',
+    description: t.enroll?.b4os2026_2?.description || 'Programa en desarrollo en conjunto con la ONG Bitcoin Argentina. Los detalles se anunciarán próximamente.',
+    highlights: [
+      t.enroll?.b4os2026_2?.highlight1 || 'Colaboración con Bitcoin Argentina',
+      t.enroll?.b4os2026_2?.highlight2 || 'Detalles próximamente',
+      t.enroll?.b4os2026_2?.highlight3 || 'Enfoque regional'
+    ]
+  },
+  'conferencia-b4os-2026': {
+    title: t.enroll?.conferencia2026?.title || 'Conferencia B4OS',
+    subtitle: t.enroll?.conferencia2026?.subtitle || 'Evento anual de la comunidad',
+    status: 'event',
+    dates: t.enroll?.conferencia2026?.dates || 'Octubre 2026 - Ciudad de México',
+    description: t.enroll?.conferencia2026?.description || 'Evento anual de la comunidad B4OS con conferencias, workshops, networking y presentación de proyectos.',
+    highlights: [
+      t.enroll?.conferencia2026?.highlight1 || 'Conferencias técnicas',
+      t.enroll?.conferencia2026?.highlight2 || 'Workshops prácticos',
+      t.enroll?.conferencia2026?.highlight3 || 'Networking con la comunidad'
+    ]
+  },
+  'b4os-2027': {
+    title: 'B4OS 2027',
+    subtitle: t.enroll?.b4os2027?.subtitle || 'Futuro programa',
+    status: 'upcoming',
+    dates: t.enroll?.b4os2027?.dates || 'Marzo 2027',
+    description: t.enroll?.b4os2027?.description || 'Programa en planificación. Los detalles se anunciarán próximamente.',
+    highlights: [
+      t.enroll?.b4os2027?.highlight1 || 'En planificación',
+      t.enroll?.b4os2027?.highlight2 || 'Detalles próximamente',
+      t.enroll?.b4os2027?.highlight3 || 'Sé el primero en enterarte'
+    ]
+  }
+};
+
+const currentCohort = cohortData[cohort] || cohortData['b4os-2024'];
+const pageTitle = `${currentCohort.title} - ${t.enroll?.meta?.titleSuffix || 'Inscripción B4OS'}`;
+const pageDescription = currentCohort.description;
+---
+
+<Layout title={pageTitle} description={pageDescription} locale={locale}>
+  <main class="enroll-page">
+    <section class="enroll-hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href={`/${locale === 'es' ? '' : locale + '/'}programs`}>
+            {t.enroll?.breadcrumb?.programs || 'Programas'}
+          </a>
+          <span class="separator">/</span>
+          <span>{currentCohort.title}</span>
+        </div>
+
+        <div class={`status-badge status-${currentCohort.status}`}>
+          {t.programs?.statusLabels?.[currentCohort.status] || currentCohort.status}
+        </div>
+
+        <h1 class="enroll-title">{currentCohort.title}</h1>
+        <p class="enroll-subtitle">{currentCohort.subtitle}</p>
+        <p class="enroll-dates">{currentCohort.dates}</p>
+      </div>
+    </section>
+
+    <section class="enroll-content">
+      <div class="container">
+        <div class="content-grid">
+          <div class="main-content">
+            <div class="description-box">
+              <h2>{t.enroll?.sections?.about || 'Acerca del Programa'}</h2>
+              <p>{currentCohort.description}</p>
+            </div>
+
+            <div class="highlights-box">
+              <h2>{t.enroll?.sections?.highlights || 'Highlights'}</h2>
+              <ul class="highlights-list">
+                {currentCohort.highlights.map((highlight: string) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            </div>
+
+            {currentCohort.status === 'open' && (
+              <div class="registration-box">
+                <h2>{t.enroll?.sections?.register || 'Inscríbete Ahora'}</h2>
+                <p>{t.enroll?.register?.description || 'Completa el formulario de registro para unirte a esta cohorte.'}</p>
+                <a href={`/${locale === 'es' ? '' : locale + '/'}#registro`} class="btn btn-primary btn-large">
+                  {t.enroll?.register?.cta || 'Ir al Formulario de Registro'}
+                </a>
+              </div>
+            )}
+
+            {currentCohort.status === 'upcoming' && (
+              <div class="waitlist-box">
+                <h2>{t.enroll?.sections?.notify || 'Recibe Notificaciones'}</h2>
+                <p>{t.enroll?.waitlist?.description || 'Déjanos tu email y te notificaremos cuando abran las inscripciones.'}</p>
+                <form class="waitlist-form" id="waitlistForm">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t.enroll?.waitlist?.placeholder || 'tu@email.com'}
+                    required
+                  />
+                  <button type="submit" class="btn btn-primary">
+                    {t.enroll?.waitlist?.cta || 'Notificarme'}
+                  </button>
+                </form>
+              </div>
+            )}
+
+            {currentCohort.status === 'completed' && (
+              <div class="results-box">
+                <h2>{t.enroll?.sections?.results || 'Resultados del Programa'}</h2>
+                <p>{t.enroll?.results?.description || 'Este programa ha sido completado exitosamente.'}</p>
+              </div>
+            )}
+          </div>
+
+          <div class="sidebar">
+            <div class="info-card">
+              <h3>{t.enroll?.sidebar?.title || 'Información del Programa'}</h3>
+              <dl class="info-list">
+                <dt>{t.enroll?.sidebar?.status || 'Estado'}</dt>
+                <dd>
+                  <span class={`inline-badge status-${currentCohort.status}`}>
+                    {t.programs?.statusLabels?.[currentCohort.status] || currentCohort.status}
+                  </span>
+                </dd>
+
+                <dt>{t.enroll?.sidebar?.dates || 'Fechas'}</dt>
+                <dd>{currentCohort.dates}</dd>
+              </dl>
+
+              <a href={`/${locale === 'es' ? '' : locale + '/'}programs`} class="btn btn-secondary btn-full">
+                {t.enroll?.sidebar?.back || 'Ver Todos los Programas'}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const waitlistForm = document.getElementById('waitlistForm');
+
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(waitlistForm as HTMLFormElement);
+          const email = formData.get('email');
+
+          // Here you would typically send to your waitlist API
+          console.log('Waitlist signup:', email);
+
+          // Show success message (you can customize this)
+          alert('¡Gracias! Te notificaremos cuando abran las inscripciones.');
+          (waitlistForm as HTMLFormElement).reset();
+        });
+      }
+    });
+  </script>
+</Layout>
