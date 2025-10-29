@@ -225,12 +225,17 @@ const hrefLangUrls = {
     </script>
 
     <!-- Waitlist translations -->
-    <script is:inline>
+    <script is:inline define:vars={{
+      successTitle: t.registration.closed?.success_title || 'Perfecto',
+      successMessage: t.registration.closed?.success_message || 'Te avisaremos cuando abramos inscripciones',
+      errorMessage: t.registration.closed?.error_message || 'Hubo un problema. Por favor intenta nuevamente',
+      emailRequired: t.registration.closed?.email_required || 'Por favor ingresa tu email'
+    }}>
       window.waitlistTranslations = {
-        success_title: '${t.registration.closed?.success_title || '¡Perfecto!'}',
-        success_message: '${t.registration.closed?.success_message || 'Te avisaremos cuando abramos inscripciones'}',
-        error_message: '${t.registration.closed?.error_message || 'Hubo un problema. Por favor intenta nuevamente'}',
-        email_required: '${t.registration.closed?.email_required || 'Por favor ingresa tu email'}'
+        success_title: successTitle,
+        success_message: successMessage,
+        error_message: errorMessage,
+        email_required: emailRequired
       };
     </script>
 
