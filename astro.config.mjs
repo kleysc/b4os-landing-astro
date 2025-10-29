@@ -48,7 +48,7 @@ export default defineConfig({
         'heroicons': ['chat-bubble-left-right','book-open','bolt', 
           'code-bracket-square', 'computer-desktop', 'wrench-screwdriver',
           'globe-americas', 'globe-europe-africa', 'envelope-solid',
-          'clock', 'bell-alert', 'calendar'
+          'clock', 'bell-alert', 'calendar', 'arrow-right'
         ],
       },
     }),
