@@ -29,6 +29,7 @@
     "toggle_aria": "Abrir menu de navegação",
     "objectives": "Objetivos",
     "alumni": "Alunos",
+    "programs": "Programas",
     "residences": "Residências",
     "schedule": "Cronograma",
     "register": "Registro",
@@ -614,6 +615,73 @@
       "title": "Interessado em se juntar?",
       "description": "Atualmente temos posições abertas. Confira nossas oportunidades disponíveis.",
       "button": "Ver Oportunidades"
+    }
+  },
+  "programsPreview": {
+    "title": "Programas B4OS",
+    "subtitle": "Conheça nossas coortes disponíveis e junte-se à próxima geração de desenvolvedores Bitcoin",
+    "viewAll": "Ver todos os programas"
+  },
+  "programs": {
+    "backToHome": "Voltar ao início",
+    "meta": {
+      "title": "Programas B4OS - Bitcoin 4 Open Source",
+      "description": "Explore todos os programas e coortes do B4OS. Formação técnica gratuita para desenvolvedores Senior em Bitcoin, Privacy e Freedom Tech."
+    },
+    "hero": {
+      "description": "Formação técnica gratuita para desenvolvedores Senior interessados em Bitcoin Open Source, Privacy e Freedom Tech"
+    },
+    "filters": {
+      "all": "Todos",
+      "open": "Abertos",
+      "upcoming": "Próximos",
+      "completed": "Concluídos",
+      "events": "Eventos"
+    },
+    "statusLabels": {
+      "completed": "Concluído",
+      "in-progress": "Em Andamento",
+      "upcoming": "Em Breve",
+      "open": "Aberto",
+      "event": "Conferência"
+    },
+    "items": {
+      "b4os2024": {
+        "date": "Março - Junho 2024",
+        "description": "Primeira coorte concluída com sucesso em Buenos Aires.",
+        "cta": "Ver Resultados"
+      },
+      "b4os2025_1": {
+        "date": "Em desenvolvimento",
+        "description": "Coorte atualmente em andamento.",
+        "cta": "Ver Progresso"
+      },
+      "b4os2025_2": {
+        "date": "Novembro 2025",
+        "description": "Inscrições abertas até 22 de novembro de 2025.",
+        "cta": "Inscrever-me"
+      },
+      "b4os2026_1": {
+        "date": "Janeiro 2026",
+        "description": "Parceria com Chaincode Labs. Inscrições abrem em 1º de dezembro.",
+        "cta": "Notificar-me"
+      },
+      "b4os2026_2": {
+        "date": "Março 2026",
+        "description": "Planejamento em desenvolvimento em conjunto com a ONG Bitcoin Argentina. Detalhes em breve.",
+        "cta": "Notificar-me"
+      },
+      "conferencia2026": {
+        "title": "Conferência B4OS",
+        "date": "Outubro 2026 - Cidade do México",
+        "description": "Evento anual da comunidade B4OS. Conferências, workshops, networking e apresentação de projetos desenvolvidos pelos participantes do programa.",
+        "cta": "Mais Informações"
+      },
+      "b4os2027": {
+        "date": "Março 2027",
+        "description": "Planejamento em desenvolvimento. Detalhes em breve.",
+        "cta": "Notificar-me"
+      }
     }
   },
   "footer": {
