@@ -515,6 +515,22 @@ const reopenDate = import.meta.env.PUBLIC_REGISTRATION_REOPEN_DATE || '2025-10-2
                         {t.programs?.items?.b4os2025_2?.cta || 'Inscribirme'}
                     </a>
                 </div>
+
+                <!-- Chaincode Labs 2025 - DESTACADO -->
+                <div class="program-card-preview program-card-yellow" data-status="upcoming">
+                    <span class="status-badge status-upcoming">
+                        {t.programs?.statusLabels?.upcoming || 'Próximamente'}
+                    </span>
+                    <h3 class="program-title">
+                        <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/chaincode-2025`} class="program-title-link">
+                            Chaincode Labs 2025
+                        </a>
+                    </h3>
+                    <div class="program-date">{t.programs?.items?.chaincode2025?.date || '2025'}</div>
+                    <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/chaincode-2025`} class="btn btn-yellow">
+                        {t.programs?.items?.chaincode2025?.cta || 'Más Información'}
+                    </a>
+                </div>
             </div>
 
             <div class="programs-preview-cta">
