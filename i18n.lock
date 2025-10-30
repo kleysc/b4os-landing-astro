@@ -457,14 +457,14 @@ checksums:
     programs/backToHome: 963f4717e252f56c5a46b1336ad80bef
     programs/hero/description: 21787fd14adaea687bf3bc05b6d2bcb5
     programs/filters/all: 7aca895b8056de3b989b9c8fad8bc3f6
-    programs/filters/open: 52758d65140a4bb91572b92f092ba370
+    programs/filters/open: 72ac2b07842293b31e782b73ff830495
     programs/filters/upcoming: 331d0f2859ecdfa06ad785eb97f73160
     programs/filters/completed: 8898007b5d3db5efeaa3b900adf11357
     programs/filters/events: e13b8b68d88285f2ecfc20a32cdaaea9
     programs/statusLabels/completed: f79d02bd2e5ef39c34380f499c8ef518
     programs/statusLabels/in-progress: c40b122f7c8549e3c381dc8ae48e0d12
     programs/statusLabels/upcoming: 7cca32946f9b763e9c6f4b2eae3b2d26
-    programs/statusLabels/open: c368c887dc605142ca538d9cf55da5d1
+    programs/statusLabels/open: 72ac2b07842293b31e782b73ff830495
     programs/statusLabels/event: a68cdd1bbc7212c11cb09dc28b781d2b
     programs/items/b4os2024/date: 107f886502ec05a50e4c3799e0c85721
     programs/items/b4os2024/description: 921615c49b47e3e9502d6d60ba3a33c3

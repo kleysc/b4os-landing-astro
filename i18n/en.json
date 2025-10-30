@@ -702,15 +702,15 @@
       "highlight3": "Be the first to know"
     },
     "chaincode2025": {
-      "subtitle": "Residency with Chaincode Labs",
+      "subtitle": "Program with Chaincode Labs",
       "dates": "2025",
-      "description": "Residency program in collaboration with Chaincode Labs. A unique opportunity for developers looking to contribute to Bitcoin and Lightning Network development.",
-      "highlight1": "Residency with Chaincode Labs",
+      "description": "Program in collaboration with Chaincode Labs. A unique opportunity for developers looking to contribute to Bitcoin and Lightning Network development.",
+      "highlight1": "Chaincode Labs",
       "highlight2": "Specialized mentoring",
       "highlight3": "Focus on Bitcoin Core and Lightning"
     },
     "chaincode": {
-      "formDescription": "Complete the following form to apply to the residency program with Chaincode Labs.",
+      "formDescription": "Complete the following form to apply to the program with Chaincode Labs.",
       "firstName": "First name / NYM",
       "lastName": "Last name / NYM",
       "email": "Email",
@@ -751,7 +751,7 @@
     },
     "filters": {
       "all": "All",
-      "open": "Registration Open",
+      "open": "Open enrollment",
       "upcoming": "Upcoming",
       "completed": "Completed",
       "events": "Events"
@@ -760,7 +760,7 @@
       "completed": "Completed",
       "in-progress": "In Progress",
       "upcoming": "Coming Soon",
-      "open": "Registration Open",
+      "open": "Open enrollment",
       "event": "Conference"
     },
     "items": {
