@@ -1,0 +1,170 @@
+---
+import { alumni } from '../../data/alumni.js';
+---
+
+<section class="py-20 bg-white" id="alumni">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestros Alumni
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Conoce a algunos de nuestros graduados exitosos que están transformando 
+        la industria de Bitcoin y blockchain en Latinoamérica.
+      </p>
+    </div>
+
+    <!-- Alumni Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {alumni.map((member, index) => (
+        <div 
+          class="bg-gradient-to-br from-gray-50 to-orange-50 p-6 rounded-2xl border border-gray-200 hover:border-orange-300 transition-all duration-300 hover:shadow-lg group"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <!-- Profile Image -->
+          <div class="text-center mb-6">
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-orange-200 group-hover:border-orange-400 transition-colors duration-300">
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+              {member.name}
+            </h3>
+            <p class="text-orange-600 font-medium">{member.role}</p>
+            <p class="text-gray-500 text-sm">{member.company}</p>
+          </div>
+
+          <!-- Bio -->
+          <p class="text-gray-600 text-center mb-6 leading-relaxed">
+            {member.bio}
+          </p>
+
+          <!-- Skills -->
+          {member.skills && (
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 text-center">Habilidades</h4>
+              <div class="flex flex-wrap gap-2 justify-center">
+                {member.skills.map((skill) => (
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Achievements -->
+          {member.achievements && (
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 text-center">Logros</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                {member.achievements.map((achievement) => (
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Social Links -->
+          {member.social && (
+            <div class="flex justify-center space-x-3 pt-4 border-t border-gray-200">
+              {member.social.map((social) => (
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-400 hover:text-orange-600 transition-colors duration-200 p-2 rounded-full hover:bg-orange-100"
+                  aria-label={social.platform}
+                >
+                  <img src={social.icon} alt={social.platform} class="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Success Metrics -->
+    <div class="bg-gradient-to-r from-orange-600 to-blue-600 rounded-2xl p-8 text-white mb-16" data-aos="fade-up" data-aos-delay="600">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold mb-2">150+</div>
+          <div class="text-orange-100">Graduados</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold mb-2">95%</div>
+          <div class="text-orange-100">Tasa de Empleo</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold mb-2">$85K</div>
+          <div class="text-orange-100">Salario Promedio</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold mb-2">25</div>
+          <div class="text-orange-100">Startups Fundadas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="800">
+      <h3 class="text-2xl font-bold text-gray-900 mb-8">
+        Lo que dicen nuestros alumni
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <p class="text-gray-600 mb-4 italic">
+            "B4OS cambió mi vida. En 12 meses pasé de no saber nada sobre Bitcoin 
+            a trabajar en una startup de Lightning Network. El programa es increíble."
+          </p>
+          <div class="flex items-center justify-center">
+            <img src="/jmontoya.jpg" alt="Juan Montoya" class="w-12 h-12 rounded-full mr-3" />
+            <div class="text-left">
+              <div class="font-semibold text-gray-900">Juan Montoya</div>
+              <div class="text-sm text-gray-500">Desarrollador Senior, Strike</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-2xl">
+          <p class="text-gray-600 mb-4 italic">
+            "La comunidad que construyó B4OS es invaluable. No solo aprendí tecnología, 
+            sino que encontré mi pasión y mi equipo para emprender."
+          </p>
+          <div class="flex items-center justify-center">
+            <img src="/josefinalliende.jpeg" alt="Josefina Liende" class="w-12 h-12 rounded-full mr-3" />
+            <div class="text-left">
+              <div class="font-semibold text-gray-900">Josefina Liende</div>
+              <div class="text-sm text-gray-500">CEO, Bitcoin Argentina</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center" data-aos="fade-up" data-aos-delay="1000">
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        ¿Quieres ser parte de esta historia de éxito?
+      </h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Únete a B4OS y conviértete en el próximo desarrollador exitoso en Bitcoin. 
+        Tu futuro en la tecnología descentralizada comienza aquí.
+      </p>
+      <a
+        href="#registro"
+        class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors duration-300 transform hover:scale-105"
+      >
+        Aplicar Ahora
+      </a>
+    </div>
+  </div>
+</section>

@@ -633,7 +633,7 @@
     },
     "filters": {
       "all": "All",
-      "open": "Open",
+      "open": "Registration Open",
       "upcoming": "Upcoming",
       "completed": "Completed",
       "events": "Events"
@@ -642,7 +642,7 @@
       "completed": "Completed",
       "in-progress": "In Progress",
       "upcoming": "Coming Soon",
-      "open": "Open",
+      "open": "Registration Open",
       "event": "Conference"
     },
     "items": {
@@ -681,6 +681,11 @@
         "date": "March 2027",
         "description": "Planning in development. Details coming soon.",
         "cta": "Notify Me"
+      },
+      "chaincode2025": {
+        "date": "2025",
+        "description": "Special program in collaboration with Chaincode Labs for advanced developers.",
+        "cta": "More Information"
       }
     }
   },

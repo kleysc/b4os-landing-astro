@@ -633,7 +633,7 @@
     },
     "filters": {
       "all": "Todos",
-      "open": "Abertos",
+      "open": "Inscrições Abertas",
       "upcoming": "Próximos",
       "completed": "Concluídos",
       "events": "Eventos"
@@ -642,7 +642,7 @@
       "completed": "Concluído",
       "in-progress": "Em Andamento",
       "upcoming": "Em Breve",
-      "open": "Aberto",
+      "open": "Inscrições Abertas",
       "event": "Conferência"
     },
     "items": {
@@ -681,6 +681,11 @@
         "date": "Março 2027",
         "description": "Planejamento em desenvolvimento. Detalhes em breve.",
         "cta": "Notificar-me"
+      },
+      "chaincode2025": {
+        "date": "2025",
+        "description": "Programa especial em colaboração com o Chaincode Labs para desenvolvedores avançados.",
+        "cta": "Mais Informações"
       }
     }
   },

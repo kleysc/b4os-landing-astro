@@ -1,0 +1,391 @@
+---
+export interface Props {
+  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'textarea' | 'select' | 'checkbox' | 'radio';
+  name: string;
+  label?: string;
+  placeholder?: string;
+  value?: string | number;
+  required?: boolean;
+  disabled?: boolean;
+  readonly?: boolean;
+  error?: string;
+  help?: string;
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'default' | 'filled' | 'outlined';
+  fullWidth?: boolean;
+  rows?: number;
+  options?: Array<{ value: string; label: string; disabled?: boolean }>;
+  min?: number;
+  max?: number;
+  step?: number;
+  pattern?: string;
+  autocomplete?: string;
+  class?: string;
+  id?: string;
+}
+
+const {
+  type = 'text',
+  name,
+  label,
+  placeholder,
+  value = '',
+  required = false,
+  disabled = false,
+  readonly = false,
+  error,
+  help,
+  size = 'md',
+  variant = 'default',
+  fullWidth = false,
+  rows = 3,
+  options = [],
+  min,
+  max,
+  step,
+  pattern,
+  autocomplete,
+  class: className = '',
+  id = name
+} = Astro.props;
+
+const baseClasses = [
+  'transition-all duration-200',
+  'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+  'disabled:opacity-50 disabled:cursor-not-allowed',
+  'readonly:bg-gray-50'
+];
+
+const sizeClasses = {
+  sm: 'px-3 py-2 text-sm',
+  md: 'px-4 py-2.5 text-base',
+  lg: 'px-5 py-3 text-lg'
+};
+
+const variantClasses = {
+  default: 'border border-gray-300 bg-white hover:border-gray-400 focus:border-blue-500',
+  filled: 'border border-gray-300 bg-gray-50 hover:bg-gray-100 focus:bg-white focus:border-blue-500',
+  outlined: 'border-2 border-gray-300 bg-transparent hover:border-gray-400 focus:border-blue-500'
+};
+
+const errorClasses = error ? 'border-red-500 focus:ring-red-500' : '';
+const widthClasses = fullWidth ? 'w-full' : '';
+
+const inputClasses = [
+  ...baseClasses,
+  sizeClasses[size],
+  variantClasses[variant],
+  errorClasses,
+  widthClasses,
+  'rounded-lg'
+].filter(Boolean).join(' ');
+
+const labelClasses = [
+  'block font-medium text-gray-700 mb-2',
+  size === 'sm' ? 'text-sm' : size === 'lg' ? 'text-lg' : 'text-base',
+  required ? 'after:content-["*"] after:ml-1 after:text-red-500' : ''
+].join(' ');
+
+const helpClasses = [
+  'mt-2 text-sm',
+  error ? 'text-red-600' : 'text-gray-500'
+].join(' ');
+
+// Generate unique IDs for form elements
+const inputId = `${id}-input`;
+const helpId = `${help || error ? `${id}-help` : ''}`;
+---
+
+<div class={`form-field ${fullWidth ? 'w-full' : ''} ${className}`}>
+  <!-- Label -->
+  {label && (
+    <label for={inputId} class={labelClasses}>
+      {label}
+    </label>
+  )}
+
+  <!-- Input Field -->
+  {type === 'textarea' && (
+    <textarea
+      id={inputId}
+      name={name}
+      placeholder={placeholder}
+      rows={rows}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    >{value}</textarea>
+  )}
+
+  {type === 'select' && (
+    <select
+      id={inputId}
+      name={name}
+      required={required}
+      disabled={disabled}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    >
+      {placeholder && (
+        <option value="" disabled selected>
+          {placeholder}
+        </option>
+      )}
+      {options.map(option => (
+        <option 
+          value={option.value} 
+          disabled={option.disabled}
+          selected={option.value === value}
+        >
+          {option.label}
+        </option>
+      ))}
+    </select>
+  )}
+
+  {type === 'checkbox' && (
+    <div class="flex items-center">
+      <input
+        id={inputId}
+        type="checkbox"
+        name={name}
+        value={value}
+        checked={Boolean(value)}
+        required={required}
+        disabled={disabled}
+        readonly={readonly}
+        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+        aria-describedby={helpId}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-required={required}
+      />
+      {label && (
+        <label for={inputId} class="ml-2 block text-sm text-gray-900">
+          {label}
+        </label>
+      )}
+    </div>
+  )}
+
+  {type === 'radio' && (
+    <div class="flex items-center">
+      <input
+        id={inputId}
+        type="radio"
+        name={name}
+        value={value}
+        checked={Boolean(value)}
+        required={required}
+        disabled={disabled}
+        readonly={readonly}
+        class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+        aria-describedby={helpId}
+        aria-invalid={error ? 'true' : 'false'}
+        aria-required={required}
+      />
+      {label && (
+        <label for={inputId} class="ml-2 block text-sm text-gray-900">
+          {label}
+        </label>
+      )}
+    </div>
+  )}
+
+  {type === 'text' && (
+    <input
+      id={inputId}
+      type="text"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  {type === 'email' && (
+    <input
+      id={inputId}
+      type="email"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  {type === 'password' && (
+    <input
+      id={inputId}
+      type="password"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  {type === 'number' && (
+    <input
+      id={inputId}
+      type="number"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      min={min}
+      max={max}
+      step={step}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  {type === 'tel' && (
+    <input
+      id={inputId}
+      type="tel"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  {type === 'url' && (
+    <input
+      id={inputId}
+      type="url"
+      name={name}
+      value={value}
+      placeholder={placeholder}
+      required={required}
+      disabled={disabled}
+      readonly={readonly}
+      pattern={pattern}
+      autocomplete={autocomplete}
+      class={inputClasses}
+      aria-describedby={helpId}
+      aria-invalid={error ? 'true' : 'false'}
+      aria-required={required}
+    />
+  )}
+
+  <!-- Help Text or Error -->
+  {(help || error) && (
+    <div id={helpId} class={helpClasses} role={error ? 'alert' : 'note'}>
+      {error || help}
+    </div>
+  )}
+</div>
+
+<style>
+  /* Enhanced focus styles */
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  /* Error state animations */
+  .form-field input[aria-invalid="true"],
+  .form-field textarea[aria-invalid="true"],
+  .form-field select[aria-invalid="true"] {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  /* Disabled state */
+  .form-field input:disabled,
+  .form-field textarea:disabled,
+  .form-field select:disabled {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+  }
+  
+  /* Readonly state */
+  .form-field input[readonly],
+  .form-field textarea[readonly] {
+    background-color: #f9fafb;
+    cursor: default;
+  }
+  
+  /* Select styling */
+  .form-field select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+  
+  /* Checkbox and radio custom styling */
+  .form-field input[type="checkbox"],
+  .form-field input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  .form-field input[type="checkbox"]:checked {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .form-field input[type="radio"]:checked {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M8 4a4 4 0 100 8 4 4 0 000-8z'/%3e%3c/svg%3e");
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>

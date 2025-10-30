@@ -1,0 +1,28 @@
+---
+// Stats component for B4OS landing page
+import { stats } from '../../data/stats.js';
+---
+
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-content">
+            <header class="stats-header">
+                <h2>B4OS en Números</h2>
+                <p>Impacto y resultados del programa de formación Bitcoin</p>
+            </header>
+            
+            <div class="stats-grid">
+                {stats.map((stat, index) => (
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay={index * 100}>
+                        <div class="stat-icon" aria-hidden="true">
+                            <span class="stat-emoji">{stat.icon}</span>
+                        </div>
+                        <div class="stat-number">{stat.title}</div>
+                        <div class="stat-label">{stat.subtitle}</div>
+                        <div class="stat-description">{stat.description}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

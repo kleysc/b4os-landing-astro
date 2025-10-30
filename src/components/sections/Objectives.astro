@@ -1,0 +1,68 @@
+---
+// Objectives component for B4OS landing page
+import { Icon } from 'astro-icon/components';
+---
+
+<section id="objectives" class="objectives">
+    <div class="container">
+        <div class="objectives-content">
+            <div class="objectives-media">
+                <img src="images/laptop-code-1.webp" 
+                    alt="Desarrolladora trabajando en Bitcoin"
+                    loading="eager"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            </div>
+
+            <div>
+                <h3 class="objectives-title-stats">
+                    B4OS ofrece rutas de aprendizaje especializadas, 
+                    permitiendo a los devs enfocarse en las áreas de mayor demanda
+                </h3>
+            </div>
+
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-icon" aria-hidden="true">
+                        <Icon name="mdi:weight-lifter" size={64} />
+                    </div>
+                    <h3>Despierta tu potencial</h3>
+                    <p>
+                        Rétate con nuestros challenges y descubre tus habilidades ocultas en el 
+                        complejo protocolo de Bitcoin. Te guiaremos con cursos y seminarios para que puedas contribuir 
+                        eficazmente a Bitcoin y Lightning.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon" aria-hidden="true">
+                        <Icon name="mdi:lightning-bolt" size={64} />
+                    </div>
+                    <h3>Lightning Network</h3>
+                    <p>
+                        Aprende a desarrollar en la segunda capa de Bitcoin. Desde la implementación de nodos 
+                        hasta la creación de aplicaciones que aprovechan la velocidad y bajos costos de Lightning.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon" aria-hidden="true">
+                        <Icon name="mdi:code-braces" size={64} />
+                    </div>
+                    <h3>Bitcoin Core</h3>
+                    <p>
+                        Sumérgete en el corazón de Bitcoin. Contribuye al código base, entiende el protocolo 
+                        y participa en el desarrollo de la red más segura del mundo.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <div class="program-icon" aria-hidden="true">
+                        <Icon name="mdi:rocket-launch" size={64} />
+                    </div>
+                    <h3>Construye el futuro</h3>
+                    <p>
+                        Únete a una comunidad global de desarrolladores que están construyendo el futuro 
+                        de las finanzas descentralizadas. Tu código puede cambiar el mundo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

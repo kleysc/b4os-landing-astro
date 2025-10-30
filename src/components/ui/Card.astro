@@ -1,0 +1,230 @@
+---
+export interface Props {
+  variant?: 'default' | 'elevated' | 'outlined' | 'filled' | 'gradient' | 'glass' | 'dark';
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  hover?: boolean;
+  clickable?: boolean;
+  href?: string;
+  target?: '_blank' | '_self' | '_parent' | '_top';
+  rel?: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: 'top' | 'bottom' | 'left' | 'right';
+  header?: string;
+  footer?: string;
+  badge?: string;
+  badgeColor?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info';
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  variant = 'default',
+  padding = 'md',
+  hover = false,
+  clickable = false,
+  href,
+  target = '_self',
+  rel,
+  image,
+  imageAlt = '',
+  imagePosition = 'top',
+  header,
+  footer,
+  badge,
+  badgeColor = 'primary',
+  class: className = '',
+  ariaLabel
+} = Astro.props;
+
+const baseClasses = [
+  'rounded-lg transition-all duration-300',
+  'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
+  'relative overflow-hidden'
+];
+
+const variantClasses = {
+  default: 'bg-white border border-gray-200 shadow-sm',
+  elevated: 'bg-white shadow-lg border border-gray-100 hover:shadow-xl',
+  outlined: 'bg-transparent border-2 border-gray-300',
+  filled: 'bg-gray-50 border border-gray-200',
+  gradient: 'bg-gradient-to-br from-blue-50 to-indigo-100 border border-blue-200',
+  glass: 'bg-white/80 backdrop-blur-sm border border-white/20 shadow-lg',
+  dark: 'bg-gray-800 text-white border border-gray-700'
+};
+
+const paddingClasses = {
+  none: '',
+  sm: 'p-3',
+  md: 'p-6',
+  lg: 'p-8',
+  xl: 'p-12'
+};
+
+const imagePositionClasses = {
+  top: 'flex-col',
+  bottom: 'flex-col-reverse',
+  left: 'flex-row',
+  right: 'flex-row-reverse'
+};
+
+const badgeColorClasses = {
+  primary: 'bg-blue-100 text-blue-800 border-blue-200',
+  secondary: 'bg-gray-100 text-gray-800 border-gray-200',
+  success: 'bg-green-100 text-green-800 border-green-200',
+  warning: 'bg-yellow-100 text-yellow-800 border-yellow-200',
+  danger: 'bg-red-100 text-red-800 border-red-200',
+  info: 'bg-cyan-100 text-cyan-800 border-cyan-200'
+};
+
+const hoverClasses = hover ? 'hover:shadow-xl hover:-translate-y-2' : '';
+const clickableClasses = clickable || href ? 'cursor-pointer hover:scale-[1.02]' : '';
+
+const classes = [
+  ...baseClasses,
+  variantClasses[variant],
+  paddingClasses[padding],
+  hoverClasses,
+  clickableClasses,
+  className
+].filter(Boolean).join(' ');
+
+const Tag = href ? 'a' : 'div';
+const attributes = href ? { href, target, rel: target === '_blank' ? 'noopener noreferrer' : rel } : {};
+
+// Determine if we need flex layout for image positioning
+const needsFlexLayout = image && (imagePosition === 'left' || imagePosition === 'right');
+---
+
+<Tag 
+  class={classes} 
+  {...attributes}
+  aria-label={ariaLabel}
+  role={href ? undefined : 'article'}
+>
+  <!-- Badge -->
+  {badge && (
+    <div class={`absolute top-3 right-3 px-2 py-1 text-xs font-medium rounded-full border ${badgeColorClasses[badgeColor]}`}>
+      {badge}
+    </div>
+  )}
+
+  <!-- Content with optional image -->
+  <div class={needsFlexLayout ? `flex ${imagePositionClasses[imagePosition]} gap-4` : ''}>
+    <!-- Image -->
+    {image && imagePosition === 'top' && (
+      <div class="relative -m-6 mb-4">
+        <img 
+          src={image} 
+          alt={imageAlt} 
+          class="w-full h-48 object-cover"
+          loading="lazy"
+        />
+      </div>
+    )}
+    
+    {image && imagePosition === 'left' && (
+      <div class="flex-shrink-0">
+        <img 
+          src={image} 
+          alt={imageAlt} 
+          class="w-24 h-24 rounded-lg object-cover"
+          loading="lazy"
+        />
+      </div>
+    )}
+
+    <!-- Main content -->
+    <div class="flex-1">
+      <!-- Header -->
+      {header && (
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+            {header}
+          </h3>
+        </div>
+      )}
+
+      <!-- Content slot -->
+      <div class="text-gray-600 dark:text-gray-300">
+        <slot />
+      </div>
+
+      <!-- Footer -->
+      {footer && (
+        <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            {footer}
+          </p>
+        </div>
+      )}
+    </div>
+
+    <!-- Image positioned right or bottom -->
+    {image && imagePosition === 'right' && (
+      <div class="flex-shrink-0">
+        <img 
+          src={image} 
+          alt={imageAlt} 
+          class="w-24 h-24 rounded-lg object-cover"
+          loading="lazy"
+        />
+      </div>
+    )}
+  </div>
+
+  <!-- Bottom image -->
+  {image && imagePosition === 'bottom' && (
+    <div class="relative -m-6 mt-4">
+      <img 
+        src={image} 
+        alt={imageAlt} 
+        class="w-full h-48 object-cover"
+        loading="lazy"
+      />
+    </div>
+  )}
+
+  <!-- Click indicator for clickable cards -->
+  {(clickable || href) && (
+    <div class="absolute inset-0 bg-blue-500/0 hover:bg-blue-500/5 transition-colors duration-200 pointer-events-none"></div>
+  )}
+</Tag>
+
+<style>
+  /* Smooth transitions for all interactive elements */
+  [role="article"] {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Enhanced focus styles for accessibility */
+  [role="article"]:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* Image hover effects */
+  img {
+    transition: transform 0.3s ease;
+  }
+  
+  [role="article"]:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Badge animations */
+  .absolute.top-3.right-3 {
+    animation: fadeInDown 0.3s ease-out;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

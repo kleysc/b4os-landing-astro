@@ -1,0 +1,169 @@
+---
+import { navigation } from '../../data/navigation.js';
+
+const { main, social } = navigation;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200/50 transition-all duration-300" id="main-nav">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 lg:h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center space-x-2 group">
+          <img src="/b4os.png" alt="B4OS Logo" class="h-8 w-auto lg:h-10 transition-transform duration-300 group-hover:scale-105" />
+          <span class="text-xl lg:text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+            B4OS
+          </span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex lg:items-center lg:space-x-8">
+        {main.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-700 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors duration-200 relative group"
+            aria-label={item.label}
+          >
+            {item.label}
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all duration-300 group-hover:w-full"></span>
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden lg:flex lg:items-center">
+        <a
+          href="#registro"
+          class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold text-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+        >
+          Aplicar Ahora
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-700 hover:text-orange-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500 transition-colors duration-200"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Abrir menú principal</span>
+          <!-- Icon when menu is closed -->
+          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!-- Icon when menu is open -->
+          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+        <!-- Mobile menu -->
+      <div class="lg:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
+          {main.map((item) => (
+            <a
+              href={item.href}
+              class="text-gray-700 hover:text-orange-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+              aria-label={item.label}
+            >
+              {item.label}
+            </a>
+          ))}
+      
+      <!-- Mobile CTA -->
+      <div class="pt-4 pb-3 border-t border-gray-200">
+        <a
+          href="#registro"
+          class="bg-orange-600 hover:bg-orange-700 text-white block w-full text-center px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300"
+        >
+          Aplicar Ahora
+        </a>
+      </div>
+      
+      <!-- Social Links in Mobile -->
+      <div class="pt-4 pb-3 border-t border-gray-200">
+        <div class="flex items-center justify-center space-x-4">
+          {social.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 hover:text-orange-600 transition-colors duration-200"
+              aria-label={social.name}
+            >
+              <img src={social.icon} alt={social.name} class="h-6 w-6" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Social Links Desktop -->
+<div class="fixed right-4 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
+  <div class="flex flex-col space-y-4">
+    {social.map((social) => (
+      <a
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:bg-orange-50 group"
+        aria-label={social.name}
+      >
+        <img src={social.icon} alt={social.name} class="h-5 w-5 group-hover:scale-110 transition-transform duration-200" />
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.querySelector('.mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuIcons = mobileMenuButton?.querySelectorAll('svg');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    
+    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+    mobileMenu?.classList.toggle('hidden');
+    
+    // Toggle icons
+    mobileMenuIcons?.forEach(icon => icon.classList.toggle('hidden'));
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+  mobileMenuLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      mobileMenuIcons?.forEach((icon, index) => {
+        icon.classList.toggle('hidden', index === 0);
+      });
+    });
+  });
+
+  // Navbar scroll effect
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('main-nav');
+
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 100) {
+      navbar?.classList.add('bg-white/98', 'shadow-lg');
+    } else {
+      navbar?.classList.remove('bg-white/98', 'shadow-lg');
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+</script>

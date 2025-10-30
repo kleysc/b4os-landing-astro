@@ -718,7 +718,7 @@
     },
     "filters": {
       "all": "Todos",
-      "open": "Abiertos",
+      "open": "Inscripciones Abiertas",
       "upcoming": "Próximos",
       "completed": "Completados",
       "events": "Eventos"
@@ -727,7 +727,7 @@
       "completed": "Completado",
       "in-progress": "En Curso",
       "upcoming": "Próximamente",
-      "open": "Abierto",
+      "open": "Inscripciones Abiertas",
       "event": "Conferencia"
     },
     "items": {

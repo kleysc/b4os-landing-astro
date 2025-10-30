@@ -1,0 +1,139 @@
+---
+import { partnerships } from '../../data/partnerships.js';
+---
+
+<section class="py-20 bg-gray-50" id="alianzas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestras Alianzas Estratégicas
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Colaboramos con las organizaciones más importantes del ecosistema Bitcoin 
+        para ofrecerte la mejor formación y oportunidades de carrera.
+      </p>
+    </div>
+
+    <!-- Partnerships Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      {partnerships.map((partner, index) => (
+        <div 
+          class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-orange-300 group"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <!-- Partner Logo -->
+          <div class="text-center mb-6">
+            <div class="w-20 h-20 mx-auto mb-4 p-4 bg-gray-50 rounded-xl group-hover:bg-orange-50 transition-colors duration-300">
+              <img 
+                src={partner.logo} 
+                alt={`Logo de ${partner.name}`}
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+              {partner.name}
+            </h3>
+            <p class="text-orange-600 font-medium">{partner.type}</p>
+          </div>
+
+          <!-- Description -->
+          <p class="text-gray-600 text-center mb-6 leading-relaxed">
+            {partner.description}
+          </p>
+
+          <!-- Benefits -->
+          {partner.benefits && (
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3 text-center">Beneficios</h4>
+              <ul class="space-y-2 text-sm text-gray-600">
+                {partner.benefits.map((benefit) => (
+                  <li class="flex items-start">
+                    <span class="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <!-- Website Link -->
+          {partner.website && (
+            <div class="text-center">
+              <a
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors duration-200"
+                aria-label={`Visitar sitio web de ${partner.name}`}
+              >
+                Visitar sitio web
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Partnership Benefits -->
+    <div class="bg-gradient-to-r from-blue-600 to-orange-600 rounded-2xl p-8 text-white mb-16" data-aos="fade-up" data-aos-delay="600">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold mb-4">¿Por qué estas alianzas son importantes?</h3>
+        <p class="text-blue-100 max-w-3xl mx-auto">
+          Nuestras alianzas estratégicas te brindan acceso directo a las mejores oportunidades 
+          del ecosistema Bitcoin, desde empleos hasta proyectos de código abierto.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.815-9-2.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Oportunidades de Empleo</h4>
+          <p class="text-blue-100 text-sm">Acceso directo a ofertas de trabajo en empresas líderes</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 5.477 5.754 5 7.5 5s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.523 18.246 19 16.5 19c-1.746 0-3.332-.477-4.5-1.253"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Mentoría Especializada</h4>
+          <p class="text-blue-100 text-sm">Acompañamiento de expertos en cada área de especialización</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Red de Contactos</h4>
+          <p class="text-blue-100 text-sm">Conecta con profesionales y líderes del ecosistema</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center" data-aos="fade-up" data-aos-delay="800">
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        ¿Quieres ser parte de esta red?
+      </h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Únete a B4OS y accede a las mejores oportunidades del ecosistema Bitcoin 
+        a través de nuestras alianzas estratégicas.
+      </p>
+      <a
+        href="#registro"
+        class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors duration-300 transform hover:scale-105"
+      >
+        Aplicar Ahora
+      </a>
+    </div>
+  </div>
+</section>

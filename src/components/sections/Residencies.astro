@@ -1,0 +1,185 @@
+---
+import { residencies } from '../../data/residencies.js';
+---
+
+<section class="py-20 bg-white" id="residencias">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Residencias B4OS
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Experiencias intensivas de inmersión total en el ecosistema Bitcoin. 
+        Vive y respira Bitcoin durante 2-4 semanas en las ciudades más importantes.
+      </p>
+    </div>
+
+    <!-- Residencies Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+      {residencies.map((residency, index) => (
+        <div 
+          class="bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl p-8 border border-gray-200 hover:border-orange-300 transition-all duration-300 hover:shadow-xl group"
+          data-aos="fade-up"
+          data-aos-delay={index * 200}
+        >
+          <!-- Residency Header -->
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
+                {residency.city}
+              </h3>
+              <p class="text-orange-600 font-medium">{residency.country}</p>
+            </div>
+            <div class="text-right">
+              <div class="text-3xl font-bold text-orange-600">{residency.duration}</div>
+              <div class="text-sm text-gray-500">semanas</div>
+            </div>
+          </div>
+
+          <!-- Residency Image -->
+          <div class="mb-6">
+            <img 
+              src={residency.image} 
+              alt={`Residencia en ${residency.city}`}
+              class="w-full h-48 object-cover rounded-xl"
+            />
+          </div>
+
+          <!-- Description -->
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            {residency.description}
+          </p>
+
+          <!-- Key Features -->
+          <div class="mb-6">
+            <h4 class="font-semibold text-gray-800 mb-3">Características principales</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              {residency.features.map((feature) => (
+                <li class="flex items-start">
+                  <span class="w-2 h-2 bg-orange-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Activities -->
+          {residency.activities && (
+            <div class="mb-6">
+              <h4 class="font-semibold text-gray-800 mb-3">Actividades incluidas</h4>
+              <div class="flex flex-wrap gap-2">
+                {residency.activities.map((activity) => (
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+                    {activity}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Dates and Status -->
+          <div class="flex items-center justify-between pt-4 border-t border-gray-200">
+            <div>
+              <p class="text-sm text-gray-500">Fechas disponibles</p>
+              <p class="font-semibold text-gray-900">{residency.dates}</p>
+            </div>
+            <div class="text-right">
+              <span class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
+                residency.status === 'available' 
+                  ? 'bg-green-100 text-green-800' 
+                  : residency.status === 'waitlist' 
+                  ? 'bg-yellow-100 text-yellow-800' 
+                  : 'bg-red-100 text-red-800'
+              }`}>
+                {residency.status === 'available' ? 'Disponible' : 
+                 residency.status === 'waitlist' ? 'Lista de espera' : 'Completo'}
+              </span>
+            </div>
+          </div>
+
+          <!-- Apply Button -->
+          <div class="mt-6 text-center">
+            <a
+              href="#registro"
+              class={`inline-block px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                residency.status === 'available'
+                  ? 'bg-orange-600 hover:bg-orange-700 text-white'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              {residency.status === 'available' ? 'Aplicar Ahora' : 
+               residency.status === 'waitlist' ? 'Unirse a Lista de Espera' : 'Residencia Completa'}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Residency Benefits -->
+    <div class="bg-gradient-to-r from-blue-600 to-orange-600 rounded-2xl p-8 text-white mb-16" data-aos="fade-up" data-aos-delay="600">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-bold mb-4">¿Por qué participar en una residencia?</h3>
+        <p class="text-blue-100 max-w-3xl mx-auto">
+          Las residencias B4OS son experiencias únicas que aceleran tu aprendizaje 
+          y te conectan directamente con la comunidad Bitcoin local.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Networking</h4>
+          <p class="text-blue-100 text-sm">Conecta con expertos locales</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Aprendizaje</h4>
+          <p class="text-blue-100 text-sm">Inmersión total en Bitcoin</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.815-9-2.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Empleo</h4>
+          <p class="text-blue-100 text-sm">Oportunidades laborales</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Experiencia</h4>
+          <p class="text-blue-100 text-sm">Vivencias únicas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center" data-aos="fade-up" data-aos-delay="800">
+      <h3 class="text-2xl font-bold text-gray-900 mb-4">
+        ¿Listo para tu residencia Bitcoin?
+      </h3>
+      <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+        Las residencias son experiencias transformadoras que te llevarán al siguiente nivel 
+        en tu carrera Bitcoin. ¡Aplica ahora y asegura tu lugar!
+      </p>
+      <a
+        href="#registro"
+        class="inline-block bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors duration-300 transform hover:scale-105"
+      >
+        Aplicar a Residencias
+      </a>
+    </div>
+  </div>
+</section>

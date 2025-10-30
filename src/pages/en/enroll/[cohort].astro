@@ -13,7 +13,8 @@ export async function getStaticPaths() {
     'b4os-2026-1',
     'b4os-2026-2',
     'conferencia-b4os-2026',
-    'b4os-2027'
+    'b4os-2027',
+    'chaincode-2025'
   ];
 
   const paths = [];
@@ -115,11 +116,23 @@ const cohortData = {
       t.enroll?.b4os2027?.highlight2 || 'Detalles próximamente',
       t.enroll?.b4os2027?.highlight3 || 'Sé el primero en enterarte'
     ]
+  },
+  'chaincode-2025': {
+    title: 'Chaincode Labs 2025',
+    subtitle: t.enroll?.chaincode2025?.subtitle || 'Residency with Chaincode Labs',
+    status: 'upcoming',
+    dates: t.enroll?.chaincode2025?.dates || '2025',
+    description: t.enroll?.chaincode2025?.description || 'Residency program in collaboration with Chaincode Labs. A unique opportunity for developers looking to contribute to Bitcoin and Lightning Network development.',
+    highlights: [
+      t.enroll?.chaincode2025?.highlight1 || 'Residency with Chaincode Labs',
+      t.enroll?.chaincode2025?.highlight2 || 'Specialized mentorship',
+      t.enroll?.chaincode2025?.highlight3 || 'Focus on Bitcoin Core and Lightning'
+    ]
   }
 };
 
 const currentCohort = cohortData[cohort] || cohortData['b4os-2024'];
-const pageTitle = `${currentCohort.title} - ${t.enroll?.meta?.titleSuffix || 'Inscripción B4OS'}`;
+const pageTitle = `${currentCohort.title} - ${t.enroll?.meta?.titleSuffix || 'B4OS Enrollment'}`;
 const pageDescription = currentCohort.description;
 ---
 
@@ -129,7 +142,7 @@ const pageDescription = currentCohort.description;
       <div class="container">
         <div class="breadcrumb">
           <a href={`/${locale === 'es' ? '' : locale + '/'}programs`}>
-            {t.enroll?.breadcrumb?.programs || 'Programas'}
+            {t.enroll?.breadcrumb?.programs || 'Programs'}
           </a>
           <span class="separator">/</span>
           <span>{currentCohort.title}</span>
@@ -150,7 +163,7 @@ const pageDescription = currentCohort.description;
         <div class="content-grid">
           <div class="main-content">
             <div class="description-box">
-              <h2>{t.enroll?.sections?.about || 'Acerca del Programa'}</h2>
+              <h2>{t.enroll?.sections?.about || 'About the Program'}</h2>
               <p>{currentCohort.description}</p>
             </div>
 
@@ -165,27 +178,222 @@ const pageDescription = currentCohort.description;
 
             {currentCohort.status === 'open' && (
               <div class="registration-box">
-                <h2>{t.enroll?.sections?.register || 'Inscríbete Ahora'}</h2>
-                <p>{t.enroll?.register?.description || 'Completa el formulario de registro para unirte a esta cohorte.'}</p>
+                <h2>{t.enroll?.sections?.register || 'Register Now'}</h2>
+                <p>{t.enroll?.register?.description || 'Complete the registration form to join this cohort.'}</p>
                 <a href={`/${locale === 'es' ? '' : locale + '/'}#registro`} class="btn btn-primary btn-large">
-                  {t.enroll?.register?.cta || 'Ir al Formulario de Registro'}
+                  {t.enroll?.register?.cta || 'Go to Registration Form'}
                 </a>
               </div>
             )}
 
-            {currentCohort.status === 'upcoming' && (
+            {currentCohort.status === 'upcoming' && cohort === 'chaincode-2025' && (
+              <div class="registration-box chaincode-form">
+                <h2>{t.enroll?.sections?.register || 'Registration Form'}</h2>
+                <p>{t.enroll?.chaincode?.formDescription || 'Complete the following form to apply to the Chaincode Labs program.'}</p>
+
+                <form class="chaincode-registration-form" id="chaincodeForm">
+                  <div class="form-group">
+                    <label for="firstName" class="required">
+                      {t.enroll?.chaincode?.firstName || 'First Name / NYM'}
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastName" class="required">
+                      {t.enroll?.chaincode?.lastName || 'Last Name / NYM'}
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email" class="required">
+                      {t.enroll?.chaincode?.email || 'Email'}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="github" class="required">
+                      {t.enroll?.chaincode?.github || 'GitHub Username'}
+                    </label>
+                    <input
+                      type="text"
+                      id="github"
+                      name="github"
+                      placeholder="e.g. satoshi NOT https://github.com/satoshi"
+                      required
+                    />
+                    <small class="form-help">
+                      {t.enroll?.chaincode?.githubHelp || 'Just the username, not the full URL'}
+                    </small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="linkedin">
+                      {t.enroll?.chaincode?.linkedin || 'LinkedIn (optional)'}
+                    </label>
+                    <input
+                      type="url"
+                      id="linkedin"
+                      name="linkedin"
+                      placeholder="https://linkedin.com/in/username"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label class="required">
+                      {t.enroll?.chaincode?.seminarParticipation || 'Did you participate in Chaincode Labs seminars?'}
+                    </label>
+                    <div class="radio-group">
+                      <label class="radio-label">
+                        <input
+                          type="radio"
+                          name="seminarParticipation"
+                          value="start-career"
+                          required
+                        />
+                        <span>{t.enroll?.chaincode?.seminarOption1 || 'Yes, I participated in the Start Your Career in Bitcoin Open Source Program'}</span>
+                      </label>
+                      <label class="radio-label">
+                        <input
+                          type="radio"
+                          name="seminarParticipation"
+                          value="completed-protocol"
+                          required
+                        />
+                        <span>{t.enroll?.chaincode?.seminarOption2 || 'Yes, I completed the Bitcoin Protocol and/or Lightning Protocol Development seminar'}</span>
+                      </label>
+                      <label class="radio-label">
+                        <input
+                          type="radio"
+                          name="seminarParticipation"
+                          value="not-completed"
+                          required
+                        />
+                        <span>{t.enroll?.chaincode?.seminarOption3 || 'I participated in a seminar, but did not complete it'}</span>
+                      </label>
+                      <label class="radio-label">
+                        <input
+                          type="radio"
+                          name="seminarParticipation"
+                          value="no"
+                          required
+                        />
+                        <span>{t.enroll?.chaincode?.seminarOption4 || 'No'}</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>
+                      {t.enroll?.chaincode?.experience || 'Experience with (optional)'}
+                    </label>
+                    <div class="checkbox-group">
+                      <label class="checkbox-label">
+                        <input
+                          type="checkbox"
+                          name="experience"
+                          value="rust"
+                        />
+                        <span>Rust</span>
+                      </label>
+                      <label class="checkbox-label">
+                        <input
+                          type="checkbox"
+                          name="experience"
+                          value="cpp"
+                        />
+                        <span>C++</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="whyParticipate" class="required">
+                      {t.enroll?.chaincode?.whyParticipate || 'Why do you want to participate?'}
+                    </label>
+                    <textarea
+                      id="whyParticipate"
+                      name="whyParticipate"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="goalAfterCompletion" class="required">
+                      {t.enroll?.chaincode?.goalAfterCompletion || 'What is your goal after completing the program?'}
+                    </label>
+                    <textarea
+                      id="goalAfterCompletion"
+                      name="goalAfterCompletion"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="interestedProjects">
+                      {t.enroll?.chaincode?.interestedProjects || 'Which projects are you interested in? (optional)'}
+                    </label>
+                    <textarea
+                      id="interestedProjects"
+                      name="interestedProjects"
+                      rows="3"
+                    ></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="referralSource" class="required">
+                      {t.enroll?.chaincode?.referralSource || 'How did you hear about this program?'}
+                    </label>
+                    <input
+                      type="text"
+                      id="referralSource"
+                      name="referralSource"
+                      placeholder={t.enroll?.chaincode?.referralPlaceholder || 'If someone referred you, who?'}
+                      required
+                    />
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn btn-yellow btn-large">
+                      {t.enroll?.chaincode?.submitButton || 'Submit Application'}
+                    </button>
+                  </div>
+                </form>
+              </div>
+            )}
+
+            {currentCohort.status === 'upcoming' && cohort !== 'chaincode-2025' && (
               <div class="waitlist-box">
-                <h2>{t.enroll?.sections?.notify || 'Recibe Notificaciones'}</h2>
-                <p>{t.enroll?.waitlist?.description || 'Déjanos tu email y te notificaremos cuando abran las inscripciones.'}</p>
+                <h2>{t.enroll?.sections?.notify || 'Receive Notifications'}</h2>
+                <p>{t.enroll?.waitlist?.description || 'Leave your email and we will notify you when registration opens.'}</p>
                 <form class="waitlist-form" id="waitlistForm">
                   <input
                     type="email"
                     name="email"
-                    placeholder={t.enroll?.waitlist?.placeholder || 'tu@email.com'}
+                    placeholder={t.enroll?.waitlist?.placeholder || 'your@email.com'}
                     required
                   />
                   <button type="submit" class="btn btn-primary">
-                    {t.enroll?.waitlist?.cta || 'Notificarme'}
+                    {t.enroll?.waitlist?.cta || 'Notify Me'}
                   </button>
                 </form>
               </div>
@@ -193,29 +401,29 @@ const pageDescription = currentCohort.description;
 
             {currentCohort.status === 'completed' && (
               <div class="results-box">
-                <h2>{t.enroll?.sections?.results || 'Resultados del Programa'}</h2>
-                <p>{t.enroll?.results?.description || 'Este programa ha sido completado exitosamente.'}</p>
+                <h2>{t.enroll?.sections?.results || 'Program Results'}</h2>
+                <p>{t.enroll?.results?.description || 'This program has been successfully completed.'}</p>
               </div>
             )}
           </div>
 
           <div class="sidebar">
             <div class="info-card">
-              <h3>{t.enroll?.sidebar?.title || 'Información del Programa'}</h3>
+              <h3>{t.enroll?.sidebar?.title || 'Program Information'}</h3>
               <dl class="info-list">
-                <dt>{t.enroll?.sidebar?.status || 'Estado'}</dt>
+                <dt>{t.enroll?.sidebar?.status || 'Status'}</dt>
                 <dd>
                   <span class={`inline-badge status-${currentCohort.status}`}>
                     {t.programs?.statusLabels?.[currentCohort.status] || currentCohort.status}
                   </span>
                 </dd>
 
-                <dt>{t.enroll?.sidebar?.dates || 'Fechas'}</dt>
+                <dt>{t.enroll?.sidebar?.dates || 'Dates'}</dt>
                 <dd>{currentCohort.dates}</dd>
               </dl>
 
               <a href={`/${locale === 'es' ? '' : locale + '/'}programs`} class="btn btn-secondary btn-full">
-                {t.enroll?.sidebar?.back || 'Ver Todos los Programas'}
+                {t.enroll?.sidebar?.back || 'View All Programs'}
               </a>
             </div>
           </div>
@@ -227,6 +435,7 @@ const pageDescription = currentCohort.description;
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const waitlistForm = document.getElementById('waitlistForm');
+      const chaincodeForm = document.getElementById('chaincodeForm');
 
       if (waitlistForm) {
         waitlistForm.addEventListener('submit', async (e) => {
@@ -238,8 +447,37 @@ const pageDescription = currentCohort.description;
           console.log('Waitlist signup:', email);
 
           // Show success message (you can customize this)
-          alert('¡Gracias! Te notificaremos cuando abran las inscripciones.');
+          alert('Thank you! We will notify you when registration opens.');
           (waitlistForm as HTMLFormElement).reset();
+        });
+      }
+
+      if (chaincodeForm) {
+        chaincodeForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(chaincodeForm as HTMLFormElement);
+
+          // Get all form values
+          const data = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            github: formData.get('github'),
+            linkedin: formData.get('linkedin'),
+            seminarParticipation: formData.get('seminarParticipation'),
+            experience: formData.getAll('experience'),
+            whyParticipate: formData.get('whyParticipate'),
+            goalAfterCompletion: formData.get('goalAfterCompletion'),
+            interestedProjects: formData.get('interestedProjects'),
+            referralSource: formData.get('referralSource')
+          };
+
+          // Here you would typically send to your API endpoint
+          console.log('Chaincode application:', data);
+
+          // Show success message
+          alert('Thank you for your application! We will contact you soon.');
+          (chaincodeForm as HTMLFormElement).reset();
         });
       }
     });

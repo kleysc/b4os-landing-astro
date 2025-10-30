@@ -1,0 +1,296 @@
+---
+import { registrationForm } from '../../data/registration.js';
+---
+
+<section class="py-20 bg-gradient-to-br from-orange-50 to-blue-50" id="registro">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Aplica al Programa B4OS 2025
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Únete a la próxima generación de desarrolladores Bitcoin. 
+        El programa es completamente gratuito y las plazas son limitadas.
+      </p>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="bg-white rounded-2xl shadow-xl p-8 mb-16" data-aos="fade-up" data-aos-delay="200">
+      <form 
+        id="registrationForm"
+        class="space-y-6"
+        data-netlify="true"
+        name="registration"
+        method="POST"
+      >
+        <!-- Personal Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
+              Nombre *
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="Tu nombre"
+            />
+          </div>
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
+              Apellido *
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="Tu apellido"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+              Email *
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="tu@email.com"
+            />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+              Teléfono
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="+54 9 11 1234-5678"
+            />
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="country" class="block text-sm font-medium text-gray-700 mb-2">
+              País *
+            </label>
+            <select
+              id="country"
+              name="country"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+            >
+              <option value="">Selecciona tu país</option>
+              <option value="argentina">Argentina</option>
+              <option value="brasil">Brasil</option>
+              <option value="chile">Chile</option>
+              <option value="colombia">Colombia</option>
+              <option value="mexico">México</option>
+              <option value="peru">Perú</option>
+              <option value="uruguay">Uruguay</option>
+              <option value="venezuela">Venezuela</option>
+              <option value="españa">España</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+          <div>
+            <label for="city" class="block text-sm font-medium text-gray-700 mb-2">
+              Ciudad *
+            </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="Tu ciudad"
+            />
+          </div>
+        </div>
+
+        <!-- Professional Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="experience" class="block text-sm font-medium text-gray-700 mb-2">
+              Años de experiencia en desarrollo *
+            </label>
+            <select
+              id="experience"
+              name="experience"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+            >
+              <option value="">Selecciona tu experiencia</option>
+              <option value="0-2">0-2 años</option>
+              <option value="3-5">3-5 años</option>
+              <option value="6-10">6-10 años</option>
+              <option value="10+">Más de 10 años</option>
+            </select>
+          </div>
+          <div>
+            <label for="currentRole" class="block text-sm font-medium text-gray-700 mb-2">
+              Rol actual
+            </label>
+            <input
+              type="text"
+              id="currentRole"
+              name="currentRole"
+              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+              placeholder="Frontend Developer, DevOps Engineer, etc."
+            />
+          </div>
+        </div>
+
+        <!-- Technical Skills -->
+        <div>
+          <label for="skills" class="block text-sm font-medium text-gray-700 mb-2">
+            Tecnologías que conoces
+          </label>
+          <textarea
+            id="skills"
+            name="skills"
+            rows="3"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+            placeholder="JavaScript, Python, Rust, Docker, Git, etc."
+          ></textarea>
+        </div>
+
+        <!-- Bitcoin Knowledge -->
+        <div>
+          <label for="bitcoinKnowledge" class="block text-sm font-medium text-gray-700 mb-2">
+            ¿Qué sabes sobre Bitcoin? *
+          </label>
+          <textarea
+            id="bitcoinKnowledge"
+            name="bitcoinKnowledge"
+            required
+            rows="3"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+            placeholder="Describe tu conocimiento actual sobre Bitcoin, blockchain, criptografía, etc."
+          ></textarea>
+        </div>
+
+        <!-- Motivation -->
+        <div>
+          <label for="motivation" class="block text-sm font-medium text-gray-700 mb-2">
+            ¿Por qué quieres participar en B4OS? *
+          </label>
+          <textarea
+            id="motivation"
+            name="motivation"
+            required
+            rows="4"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+            placeholder="Cuéntanos tu motivación para aprender Bitcoin y cómo planeas contribuir al ecosistema..."
+          ></textarea>
+        </div>
+
+        <!-- Availability -->
+        <div>
+          <label for="availability" class="block text-sm font-medium text-gray-700 mb-2">
+            ¿Cuántas horas semanales puedes dedicar al programa? *
+          </label>
+          <select
+            id="availability"
+            name="availability"
+            required
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+          >
+            <option value="">Selecciona tu disponibilidad</option>
+            <option value="5-10">5-10 horas</option>
+            <option value="10-20">10-20 horas</option>
+            <option value="20-30">20-30 horas</option>
+            <option value="30+">Más de 30 horas</option>
+          </select>
+        </div>
+
+        <!-- How did you hear about us -->
+        <div>
+          <label for="source" class="block text-sm font-medium text-gray-700 mb-2">
+            ¿Cómo te enteraste de B4OS?
+          </label>
+          <select
+            id="source"
+            name="source"
+            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="social-media">Redes sociales</option>
+            <option value="friend">Amigo/Colega</option>
+            <option value="event">Evento/Conferencia</option>
+            <option value="search">Búsqueda en internet</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center pt-6">
+          <button
+            type="submit"
+            class="w-full md:w-auto bg-orange-600 hover:bg-orange-700 text-white px-12 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-orange-300"
+          >
+            Enviar Aplicación
+          </button>
+        </div>
+
+        <!-- Form Note -->
+        <div class="text-center text-sm text-gray-500 mt-4">
+          <p>
+            Al enviar esta aplicación, aceptas nuestros 
+            <a href="/terminos" class="text-orange-600 hover:text-orange-700 underline">
+              términos y condiciones
+            </a>
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Important Information -->
+    <div class="bg-blue-600 rounded-2xl p-8 text-white text-center" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="text-2xl font-bold mb-4">Información Importante</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Plazas Limitadas</h4>
+          <p class="text-blue-100 text-sm">Solo 50 cupos disponibles para 2025</p>
+        </div>
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Programa Gratuito</h4>
+          <p class="text-blue-100 text-sm">Sin costo alguno para los participantes</p>
+        </div>
+        <div>
+          <div class="w-16 h-16 mx-auto mb-4 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h4 class="font-semibold mb-2">Inicio Agosto 2025</h4>
+          <p class="text-blue-100 text-sm">Programa intensivo de 12 meses</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

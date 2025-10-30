@@ -1,0 +1,192 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'danger';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  loading?: boolean;
+  fullWidth?: boolean;
+  icon?: string;
+  iconPosition?: 'left' | 'right';
+  class?: string;
+  ariaLabel?: string;
+  onClick?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  disabled = false,
+  loading = false,
+  fullWidth = false,
+  icon,
+  iconPosition = 'left',
+  class: className = '',
+  ariaLabel,
+  onClick
+} = Astro.props;
+
+const baseClasses = [
+  'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200',
+  'focus:outline-none focus:ring-2 focus:ring-offset-2',
+  'disabled:opacity-50 disabled:cursor-not-allowed',
+  'hover:scale-105 active:scale-95 relative overflow-hidden'
+];
+
+const variantClasses = {
+  primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500 shadow-lg hover:shadow-xl',
+  secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500 shadow-lg hover:shadow-xl',
+  outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
+  ghost: 'text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
+  danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500 shadow-lg hover:shadow-xl'
+};
+
+const sizeClasses = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-6 py-3 text-lg',
+  xl: 'px-8 py-4 text-xl'
+};
+
+const widthClasses = fullWidth ? 'w-full' : '';
+
+const classes = [
+  ...baseClasses,
+  variantClasses[variant],
+  sizeClasses[size],
+  widthClasses,
+  className
+].filter(Boolean).join(' ');
+
+const Tag = href ? 'a' : 'button';
+const attributes = href ? { href } : { type };
+
+// Icon mapping for common icons
+const iconMap: Record<string, string> = {
+  'arrow-right': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>`,
+  'arrow-left': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>`,
+  'download': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>`,
+  'external': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>`,
+  'check': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`,
+  'close': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`,
+  'menu': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>`,
+  'search': `<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>`
+};
+
+const getIcon = (iconName: string) => {
+  return iconMap[iconName] || `<span class="h-4 w-4">${iconName}</span>`;
+};
+
+// Prepare attributes based on tag type
+const buttonAttributes = {
+  type,
+  disabled: disabled || loading,
+  'aria-label': ariaLabel,
+  'aria-disabled': disabled || loading,
+  'data-ripple': 'true',
+  class: classes
+};
+
+const anchorAttributes = {
+  href,
+  'aria-label': ariaLabel,
+  'data-ripple': 'true',
+  class: classes
+};
+
+const finalAttributes = href ? anchorAttributes : buttonAttributes;
+---
+
+<Tag {...finalAttributes}>
+  {loading && (
+    <svg class="animate-spin -ml-1 mr-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+  )}
+  
+  {icon && iconPosition === 'left' && !loading && (
+    <span class="mr-2" set:html={getIcon(icon)}></span>
+  )}
+  
+  <slot />
+  
+  {icon && iconPosition === 'right' && !loading && (
+    <span class="ml-2" set:html={getIcon(icon)}></span>
+  )}
+  
+  <!-- Ripple effect container -->
+  <div class="ripple-container absolute inset-0 pointer-events-none"></div>
+</Tag>
+
+<script>
+  // Ripple effect implementation
+  document.addEventListener('click', function(e) {
+    const target = e.target as HTMLElement;
+    if (!target) return;
+    
+    const button = target.closest('[data-ripple="true"]');
+    if (!button) return;
+    
+    const ripple = button.querySelector('.ripple-container');
+    if (!ripple) return;
+    
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    
+    const rippleElement = document.createElement('span');
+    rippleElement.style.cssText = `
+      position: absolute;
+      width: ${size}px;
+      height: ${size}px;
+      left: ${x}px;
+      top: ${y}px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    `;
+    
+    ripple.appendChild(rippleElement);
+    
+    setTimeout(() => {
+      rippleElement.remove();
+    }, 600);
+  });
+</script>
+
+<style>
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+  
+  /* Focus styles for better accessibility */
+  [data-ripple="true"]:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  
+  /* Hover effects */
+  [data-ripple="true"]:hover {
+    transform: translateY(-1px);
+  }
+  
+  [data-ripple="true"]:active {
+    transform: translateY(0);
+  }
+  
+  /* Disabled state */
+  [data-ripple="true"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>

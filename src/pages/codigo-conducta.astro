@@ -1,0 +1,168 @@
+---
+// src/pages/codigo-conducta.astro
+import Layout from '../layouts/Layout.astro';
+import '../styles/terms.css';
+
+const pageTitle = "Código de Conducta - B4OS | Bitcoin 4 Open Source";
+const pageDescription = "Código de conducta de la comunidad B4OS. Normas de comportamiento, expectativas y sanciones para crear un ambiente inclusivo y respetuoso.";
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+  noindex={true}
+>
+    <!-- Header simplificado para páginas legales -->
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="/" class="nav-link" aria-label="Volver al inicio de B4OS">
+                        <img src="/b4os.png" alt="B4OS - Bitcoin 4 Open Source Logo" class="logo" width="64" height="64">
+                    </a>
+                </div>
+                <div class="nav-menu">
+                    <button onclick="window.close()" class="nav-link nav-close-btn">✕ Cerrar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal del código de conducta -->
+    <main class="terms-page">
+    <div class="container">
+        <article class="terms-content">
+        <header class="terms-header">
+            <h1>Código de Conducta de la Comunidad B4OS</h1>
+            <p class="terms-intro">
+                Queremos crear una <strong>comunidad inclusiva y respetuosa</strong> donde todas las personas puedan participar sin importar su origen, identidad o nivel de experiencia.
+            </p>
+            <p class="terms-intro">
+                Este código de conducta establece las <strong>expectativas para todos los miembros</strong> de nuestra comunidad.
+            </p>
+        </header>
+
+        <section class="terms-section">
+            <h2>Nuestro Propósito</h2>
+            <div class="info-box">
+                <p>
+                    Crear una comunidad donde todas las personas puedan participar, contribuir y crecer juntas en el ecosistema de Bitcoin y código abierto, sin importar su origen, identidad o nivel de experiencia.
+                </p>
+            </div>
+        </section>
+
+        <section class="terms-section">
+            <h2>Comportamiento Esperado</h2>
+            <p>Se espera que todos los miembros de la comunidad:</p>
+            
+            <div class="phase-box">
+                <ul>
+                    <li><strong>Sean amables y empáticos</strong> con otros miembros</li>
+                    <li><strong>Escuchen antes de hablar</strong> y consideren diferentes perspectivas</li>
+                    <li><strong>Usen un lenguaje respetuoso e inclusivo</strong> en todas las comunicaciones</li>
+                    <li><strong>Respeten las opiniones diversas</strong> y las experiencias de otros</li>
+                    <li><strong>Proporcionen retroalimentación constructiva</strong> cuando sea apropiado</li>
+                    <li><strong>Usen los nombres y pronombres preferidos</strong> de las personas</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="terms-section">
+            <h2>Comportamiento Inaceptable</h2>
+            <p>Los siguientes comportamientos se consideran <strong>inaceptables</strong>:</p>
+            
+            <div class="warning-box">
+                <ul>
+                    <li><strong>Acoso</strong> de cualquier tipo hacia otros miembros</li>
+                    <li><strong>Solicitar información privada</strong> sin consentimiento</li>
+                    <li><strong>Solicitar dinero o inversiones</strong> sin aprobación previa</li>
+                    <li><strong>Suplantación de identidad</strong> de otros miembros o figuras públicas</li>
+                    <li><strong>Lenguaje o conducta discriminatoria</strong> basada en características personales</li>
+                    <li><strong>Comportamiento irrespetuoso</strong> hacia otros miembros</li>
+                    <li><strong>Spam o autopromoción inapropiada</strong> sin relevancia para la comunidad</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="terms-section">
+            <h2>Sanciones</h2>
+            <div class="important-box">
+                <p><strong>Los individuos que exhiban comportamiento inaceptable pueden:</strong></p>
+                <ul>
+                    <li><strong>Perder oportunidades</strong> de formar parte del equipo</li>
+                    <li><strong>Perder certificados y becas</strong> otorgados por la comunidad</li>
+                    <li><strong>Ser suspendidos temporal o permanentemente</strong> de la comunidad</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="terms-section">
+            <h2>Aplicación</h2>
+            <p>Este código de conducta se aplica a <strong>todos los espacios</strong> de la comunidad, incluyendo:</p>
+            
+            <div class="phase-box">
+                <ul>
+                    <li>Repositorios de código</li>
+                    <li>Eventos presenciales y virtuales</li>
+                    <li>Comunicaciones en línea (Discord, Telegram, etc.)</li>
+                    <li>Redes sociales relacionadas con la comunidad</li>
+                    <li>Residencias y actividades del programa</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="terms-section">
+            <h2>Reporte de Incidentes</h2>
+            <div class="conduct-box">
+                <p>
+                    Si experimentas o presencias comportamiento que viola este código de conducta, por favor <strong>reporta el incidente</strong> a los administradores de la comunidad.
+                </p>
+                <p>
+                    Puedes contactarnos a través de <a href="mailto:hola@libreriadesatoshi.com">hola@libreriadesatoshi.com</a> o por los canales oficiales de Discord.
+                </p>
+            </div>
+        </section>
+
+        <section class="terms-contact">
+            <h2>¿Preguntas sobre este código?</h2>
+            <p>
+                Escríbenos a <a href="mailto:hola@libreriadesatoshi.com">hola@libreriadesatoshi.com</a>
+            </p>
+        </section>
+
+        <section class="terms-section tldr-section">
+            <div class="tldr-box">
+                <p>
+                    <em>TL;DR: Sé amable, respetuoso y profesional. Contribuye positivamente a la comunidad. Zero tolerancia con acoso, discriminación o comportamientos tóxicos. Queremos que todos puedan aprender y crecer juntos. ✨</em>
+                </p>
+            </div>
+        </section>
+
+        <footer class="terms-footer">
+            <p><strong>Última actualización:</strong> Agosto 2025</p>
+            <div class="terms-actions">
+            <button onclick="window.close()" class="btn btn-primary">Cerrar</button>
+            <a href="/#registro" class="btn btn-primary">Ir al registro</a>
+            </div>
+        </footer>
+        </article>
+    </div>
+    </main>
+
+    <!-- Footer simplificado -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div>
+                        <p>&copy; 2025 <strong>B4OS (Bitcoin 4 Open Source)</strong>. Hecho con <span class="heart" aria-label="amor">❤️</span> para la comunidad Bitcoin</p>
+                    </div>
+                    <nav class="footer-legal" aria-label="Enlaces legales">
+                        <a href="/terminos" rel="nofollow">Términos de Uso</a>
+                        <a href="/codigo-conducta" rel="nofollow">Código de Conducta</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+</Layout>

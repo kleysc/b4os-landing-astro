@@ -1,0 +1,169 @@
+---
+import { footer } from '../../data/footer.js';
+---
+
+<footer class="bg-gray-900 text-white" id="footer">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+      <!-- Brand Section -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center space-x-3 mb-6">
+          <img src="/b4os.png" alt="B4OS Logo" class="h-12 w-auto" />
+          <span class="text-2xl font-bold text-white">B4OS</span>
+        </div>
+        <p class="text-gray-300 mb-6 max-w-md">
+          Bitcoin for Open Societies. Formando la próxima generación de desarrolladores y líderes en tecnologías descentralizadas para Latinoamérica.
+        </p>
+        
+        <!-- Social Links -->
+        <div class="flex space-x-4">
+          {footer.social.map((socialItem) => (
+            <a
+              href={socialItem.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-orange-500 transition-colors duration-200 p-2 rounded-full hover:bg-gray-800"
+              aria-label={socialItem.name}
+            >
+              <img src={socialItem.icon} alt={socialItem.name} class="h-5 w-5" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+        <ul class="space-y-3">
+          {footer.quickLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-orange-500 transition-colors duration-200 hover:underline"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Recursos</h3>
+        <ul class="space-y-3">
+          {footer.resources.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-orange-500 transition-colors duration-200 hover:underline"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div>
+        <h3 class="text-lg font-semibold text-white mb-4">Soporte</h3>
+        <ul class="space-y-3">
+          {footer.support.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-gray-300 hover:text-orange-500 transition-colors duration-200 hover:underline"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-t border-gray-800 mt-12 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <div class="text-gray-400 text-sm">
+          <p>&copy; {new Date().getFullYear()} B4OS. Todos los derechos reservados.</p>
+        </div>
+        
+        <div class="flex space-x-6 text-sm">
+          <a href="/terminos" class="text-gray-400 hover:text-orange-500 transition-colors duration-200">
+            Términos y Condiciones
+          </a>
+          <a href="/privacy" class="text-gray-400 hover:text-orange-500 transition-colors duration-200">
+            Política de Privacidad
+          </a>
+          <a href="/cookies" class="text-gray-400 hover:text-orange-500 transition-colors duration-200">
+            Política de Cookies
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="mt-8 p-6 bg-gray-800 rounded-lg">
+      <div class="text-center">
+        <h4 class="text-lg font-semibold text-white mb-2">
+          Mantente actualizado con B4OS
+        </h4>
+        <p class="text-gray-300 mb-4">
+          Recibe las últimas noticias sobre el programa, eventos y oportunidades.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input
+            type="email"
+            placeholder="Tu email"
+            class="flex-1 px-4 py-2 rounded-lg border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+            required
+          />
+          <button
+            type="submit"
+            class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 transform hover:scale-105"
+          >
+            Suscribirse
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Newsletter form handling
+  const newsletterForm = document.querySelector('form');
+  
+  newsletterForm?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const emailInput = this.querySelector('input[type="email"]') as HTMLInputElement;
+    const email = emailInput?.value;
+    
+    if (!email) return;
+    
+    // Here you would typically send the email to your backend
+    console.log('Newsletter signup:', email);
+    
+    // Show success message
+    const button = this.querySelector('button');
+    if (button) {
+      const originalText = button.textContent;
+      button.textContent = '¡Suscrito!';
+      button.classList.add('bg-green-600');
+      
+      // Reset form
+      this.reset();
+      
+      // Reset button after 3 seconds
+      setTimeout(() => {
+        if (button) {
+          button.textContent = originalText;
+          button.classList.remove('bg-green-600');
+        }
+      }, 3000);
+    }
+  });
+</script>
