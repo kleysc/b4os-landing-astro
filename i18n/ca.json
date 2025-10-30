@@ -189,7 +189,7 @@
     },
     "period": {
       "label": "Registre fins a",
-      "dates": "22 de novembre de 2025"
+      "dates": "22 de novembre 2025"
     },
     "closed": {
       "badge_label": "Estat",
@@ -617,23 +617,141 @@
       "button": "Veure oportunitats"
     }
   },
+  "enroll": {
+    "meta": {
+      "titleSuffix": "Inscripció B4OS"
+    },
+    "breadcrumb": {
+      "programs": "Programes"
+    },
+    "sections": {
+      "about": "Sobre el Programa",
+      "highlights": "Highlights",
+      "notify": "Rep Notificacions",
+      "results": "Resultats del Programa"
+    },
+    "waitlist": {
+      "description": "Deixa'ns el teu email i et notificarem quan obrin les inscripcions.",
+      "placeholder": "el@teu.email",
+      "cta": "Notifica'm"
+    },
+    "results": {
+      "description": "Aquest programa ha estat completat amb èxit."
+    },
+    "sidebar": {
+      "title": "Informació del Programa",
+      "status": "Estat",
+      "dates": "Dates",
+      "back": "Veure Tots els Programes"
+    },
+    "b4os2024": {
+      "subtitle": "Programa completat - Buenos Aires",
+      "dates": "Març - Juny 2024",
+      "description": "La primera cohort de B4OS va ser completada amb èxit a Buenos Aires amb desenvolupadors de tota Amèrica Llatina.",
+      "highlight1": "15 desenvolupadors graduats",
+      "highlight2": "Residència presencial de 2 setmanes",
+      "highlight3": "Múltiples grants atorgats"
+    },
+    "b4os2025_1": {
+      "subtitle": "Programa en desenvolupament",
+      "dates": "En progrés",
+      "description": "Cohort actualment en desenvolupament amb participants treballant en contribucions a Bitcoin Core i Lightning Network.",
+      "highlight1": "Programa actiu",
+      "highlight2": "Contribucions en curs",
+      "highlight3": "Mentories especialitzades"
+    },
+    "b4os2025_2": {
+      "subtitle": "Inscripcions Obertes",
+      "dates": "Novembre 2025",
+      "description": "Les inscripcions per a aquesta cohort estan obertes fins al 22 de novembre de 2025.",
+      "highlight1": "Inscripcions obertes fins al 22 de novembre de 2025",
+      "highlight2": "Enfocament en Bitcoin Core i Lightning Network",
+      "highlight3": "Residència a Florianópolis, Brasil (Feb-Mar 2026)"
+    },
+    "b4os2026_1": {
+      "subtitle": "Col·laboració amb Chaincode Labs",
+      "dates": "Gener 2026",
+      "description": "Programa especial en col·laboració amb Chaincode Labs. Les inscripcions obren l'1 de desembre.",
+      "highlight1": "Col·laboració amb Chaincode Labs",
+      "highlight2": "Mentors de classe mundial",
+      "highlight3": "Registre obre l'1 de desembre"
+    },
+    "b4os2026_2": {
+      "subtitle": "En planificació",
+      "dates": "Març 2026",
+      "description": "Programa en desenvolupament conjuntament amb l'ONG Bitcoin Argentina. Els detalls s'anunciaran pròximament.",
+      "highlight1": "Col·laboració amb Bitcoin Argentina",
+      "highlight2": "Detalls pròximament",
+      "highlight3": "Enfocament regional"
+    },
+    "conferencia2026": {
+      "title": "Conferència B4OS",
+      "subtitle": "Esdeveniment anual de la comunitat",
+      "dates": "Octubre 2026 - Ciutat de Mèxic",
+      "description": "Esdeveniment anual de la comunitat B4OS amb conferències, workshops, networking i presentació de projectes.",
+      "highlight1": "Conferències tècniques",
+      "highlight2": "Workshops pràctics",
+      "highlight3": "Networking amb la comunitat"
+    },
+    "b4os2027": {
+      "subtitle": "Futur programa",
+      "dates": "Març 2027",
+      "description": "Programa en planificació. Els detalls s'anunciaran pròximament.",
+      "highlight1": "En planificació",
+      "highlight2": "Detalls pròximament",
+      "highlight3": "Sigues el primer a assabentar-te"
+    },
+    "chaincode2025": {
+      "subtitle": "Residència amb Chaincode Labs",
+      "dates": "2025",
+      "description": "Programa de residència en col·laboració amb Chaincode Labs. Una oportunitat única per a desenvolupadors que busquen contribuir al desenvolupament de Bitcoin i Lightning Network.",
+      "highlight1": "Residència amb Chaincode Labs",
+      "highlight2": "Mentories especialitzades",
+      "highlight3": "Enfocament en Bitcoin Core i Lightning"
+    },
+    "chaincode": {
+      "formDescription": "Completa el següent formulari per aplicar al programa de residència amb Chaincode Labs.",
+      "firstName": "Nom / NYM",
+      "lastName": "Cognom / NYM",
+      "email": "Email",
+      "github": "Usuari de GitHub",
+      "githubHelp": "Només el nom d'usuari, no l'URL completa",
+      "linkedin": "LinkedIn (opcional)",
+      "seminarParticipation": "Has participat en seminaris de Chaincode Labs?",
+      "seminarOption1": "Sí, he participat en el Start Your Career in Bitcoin Open Source Program",
+      "seminarOption2": "Sí, he completat el seminari de Bitcoin Protocol i/o Lightning Protocol Development",
+      "seminarOption3": "Vaig participar en un seminari, però no el vaig completar",
+      "seminarOption4": "No",
+      "experience": "Experiència en (opcional)",
+      "whyParticipate": "Per què vols participar?",
+      "goalAfterCompletion": "Quin és el teu objectiu després de completar el programa?",
+      "interestedProjects": "En quins projectes estàs interessat? (opcional)",
+      "referralSource": "Com t'has assabentat d'aquest programa?",
+      "referralPlaceholder": "Si algú t'ho va recomanar, qui?",
+      "submitButton": "Enviar Sol·licitud"
+    },
+    "register": {
+      "description": "Completa el formulari de registre per unir-te a aquesta cohort.",
+      "cta": "Anar al Formulari de Registre"
+    }
+  },
   "programsPreview": {
     "title": "Programes B4OS",
     "subtitle": "Coneix les nostres cohorts disponibles i uneix-te a la propera generació de desenvolupadors Bitcoin",
     "viewAll": "Veure tots els programes"
   },
   "programs": {
-    "backToHome": "Tornar a l'inici",
     "meta": {
       "title": "Programes B4OS - Bitcoin 4 Open Source",
       "description": "Explora tots els programes i cohorts de B4OS. Formació tècnica gratuïta per a desenvolupadors Senior en Bitcoin, Privacy i Freedom Tech."
     },
+    "backToHome": "Tornar a l'inici",
     "hero": {
       "description": "Formació tècnica gratuïta per a desenvolupadors Senior interessats en Bitcoin Open Source, Privacy i Freedom Tech"
     },
     "filters": {
       "all": "Tots",
-      "open": "Oberts",
+      "open": "Inscripcions Obertes",
       "upcoming": "Pròxims",
       "completed": "Completats",
       "events": "Esdeveniments"
@@ -642,7 +760,7 @@
       "completed": "Completat",
       "in-progress": "En Curs",
       "upcoming": "Pròximament",
-      "open": "Obert",
+      "open": "Inscripcions Obertes",
       "event": "Conferència"
     },
     "items": {
@@ -681,6 +799,11 @@
         "date": "Març 2027",
         "description": "Planificació en desenvolupament. Detalls pròximament.",
         "cta": "Notificar-me"
+      },
+      "chaincode2025": {
+        "date": "2025",
+        "description": "Programa especial en col·laboració amb Chaincode Labs per a desenvolupadors avançats.",
+        "cta": "Més Informació"
       }
     }
   },

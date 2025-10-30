@@ -74,7 +74,7 @@
     "linkedin_aria": "LinkedIn de {name}",
     "twitter_aria": "Twitter de {name}",
     "grantee_b4os": "Grantee do B4OS",
-    "grantee_b4os_localhost": "Bolsista do B4OS",
+    "grantee_b4os_localhost": "Grantee do B4OS",
     "grantee_spiral": "Grantee do Spiral",
     "grantee_bdk": "Grantee da BDK Foundation",
     "grantee_whitenoise_b4os": "Grantee do White Noise - B4OS",
@@ -189,7 +189,7 @@
     },
     "period": {
       "label": "Registro até",
-      "dates": "22 de novembro de 2025"
+      "dates": "22 de novembro 2025"
     },
     "closed": {
       "badge_label": "Status",
@@ -617,23 +617,141 @@
       "button": "Ver Oportunidades"
     }
   },
+  "enroll": {
+    "meta": {
+      "titleSuffix": "Inscrição B4OS"
+    },
+    "breadcrumb": {
+      "programs": "Programas"
+    },
+    "sections": {
+      "about": "Sobre o Programa",
+      "highlights": "Destaques",
+      "notify": "Receba Notificações",
+      "results": "Resultados do Programa"
+    },
+    "waitlist": {
+      "description": "Deixe seu email e te notificaremos quando as inscrições abrirem.",
+      "placeholder": "seu@email.com",
+      "cta": "Notificar-me"
+    },
+    "results": {
+      "description": "Este programa foi concluído com sucesso."
+    },
+    "sidebar": {
+      "title": "Informação do Programa",
+      "status": "Status",
+      "dates": "Datas",
+      "back": "Ver Todos os Programas"
+    },
+    "b4os2024": {
+      "subtitle": "Programa concluído - Buenos Aires",
+      "dates": "Março - Junho 2024",
+      "description": "A primeira turma do B4OS foi concluída com sucesso em Buenos Aires com desenvolvedores de toda a América Latina.",
+      "highlight1": "15 desenvolvedores formados",
+      "highlight2": "Residência presencial de 2 semanas",
+      "highlight3": "Múltiplas bolsas concedidas"
+    },
+    "b4os2025_1": {
+      "subtitle": "Programa em desenvolvimento",
+      "dates": "Em andamento",
+      "description": "Coorte atualmente em desenvolvimento com participantes trabalhando em contribuições para o Bitcoin Core e Lightning Network.",
+      "highlight1": "Programa ativo",
+      "highlight2": "Contribuições em andamento",
+      "highlight3": "Mentorias especializadas"
+    },
+    "b4os2025_2": {
+      "subtitle": "Inscrições Abertas",
+      "dates": "Novembro 2025",
+      "description": "As inscrições para esta coorte estão abertas até 22 de novembro de 2025.",
+      "highlight1": "Inscrições abertas até 22 de novembro de 2025",
+      "highlight2": "Foco em Bitcoin Core e Lightning Network",
+      "highlight3": "Residência em Florianópolis, Brasil (Fev-Mar 2026)"
+    },
+    "b4os2026_1": {
+      "subtitle": "Parceria com Chaincode Labs",
+      "dates": "Janeiro 2026",
+      "description": "Programa especial em colaboração com Chaincode Labs. As inscrições abrem em 1º de dezembro.",
+      "highlight1": "Parceria com Chaincode Labs",
+      "highlight2": "Mentores de classe mundial",
+      "highlight3": "Registro abre em 1º de dezembro"
+    },
+    "b4os2026_2": {
+      "subtitle": "Em planejamento",
+      "dates": "Março 2026",
+      "description": "Programa em desenvolvimento em conjunto com a ONG Bitcoin Argentina. Os detalhes serão anunciados em breve.",
+      "highlight1": "Colaboração com Bitcoin Argentina",
+      "highlight2": "Detalhes em breve",
+      "highlight3": "Foco regional"
+    },
+    "conferencia2026": {
+      "title": "Conferência B4OS",
+      "subtitle": "Evento anual da comunidade",
+      "dates": "Outubro 2026 - Cidade do México",
+      "description": "Evento anual da comunidade B4OS com conferências, workshops, networking e apresentação de projetos.",
+      "highlight1": "Conferências técnicas",
+      "highlight2": "Workshops práticos",
+      "highlight3": "Networking com a comunidade"
+    },
+    "b4os2027": {
+      "subtitle": "Futuro programa",
+      "dates": "Março 2027",
+      "description": "Programa em planejamento. Os detalhes serão anunciados em breve.",
+      "highlight1": "Em planejamento",
+      "highlight2": "Detalhes em breve",
+      "highlight3": "Seja o primeiro a saber"
+    },
+    "chaincode2025": {
+      "subtitle": "Residência com Chaincode Labs",
+      "dates": "2025",
+      "description": "Programa de residência em colaboração com Chaincode Labs. Uma oportunidade única para desenvolvedores que buscam contribuir para o desenvolvimento do Bitcoin e Lightning Network.",
+      "highlight1": "Residência com Chaincode Labs",
+      "highlight2": "Mentorias especializadas",
+      "highlight3": "Foco em Bitcoin Core e Lightning"
+    },
+    "chaincode": {
+      "formDescription": "Preencha o seguinte formulário para se candidatar ao programa de residência com Chaincode Labs.",
+      "firstName": "Nome / NYM",
+      "lastName": "Sobrenome / NYM",
+      "email": "Email",
+      "github": "Usuário do GitHub",
+      "githubHelp": "Apenas o nome de usuário, não a URL completa",
+      "linkedin": "LinkedIn (opcional)",
+      "seminarParticipation": "Você participou de seminários do Chaincode Labs?",
+      "seminarOption1": "Sim, participei do Start Your Career in Bitcoin Open Source Program",
+      "seminarOption2": "Sim, completei o seminário de Bitcoin Protocol e/ou Lightning Protocol Development",
+      "seminarOption3": "Participei de um seminário, mas não o completei",
+      "seminarOption4": "Não",
+      "experience": "Experiência em (opcional)",
+      "whyParticipate": "Por que você quer participar?",
+      "goalAfterCompletion": "Qual é o seu objetivo depois de completar o programa?",
+      "interestedProjects": "Em quais projetos você está interessado? (opcional)",
+      "referralSource": "Como você ficou sabendo deste programa?",
+      "referralPlaceholder": "Se alguém indicou você, quem foi?",
+      "submitButton": "Enviar solicitação"
+    },
+    "register": {
+      "description": "Complete o formulário de registro para se juntar a esta turma.",
+      "cta": "Ir para o formulário de registro"
+    }
+  },
   "programsPreview": {
     "title": "Programas B4OS",
     "subtitle": "Conheça nossas coortes disponíveis e junte-se à próxima geração de desenvolvedores Bitcoin",
     "viewAll": "Ver todos os programas"
   },
   "programs": {
-    "backToHome": "Voltar ao início",
     "meta": {
       "title": "Programas B4OS - Bitcoin 4 Open Source",
       "description": "Explore todos os programas e coortes do B4OS. Formação técnica gratuita para desenvolvedores Senior em Bitcoin, Privacy e Freedom Tech."
     },
+    "backToHome": "Voltar ao início",
     "hero": {
       "description": "Formação técnica gratuita para desenvolvedores Senior interessados em Bitcoin Open Source, Privacy e Freedom Tech"
     },
     "filters": {
       "all": "Todos",
-      "open": "Abertos",
+      "open": "Inscrições Abertas",
       "upcoming": "Próximos",
       "completed": "Concluídos",
       "events": "Eventos"
@@ -642,7 +760,7 @@
       "completed": "Concluído",
       "in-progress": "Em Andamento",
       "upcoming": "Em Breve",
-      "open": "Aberto",
+      "open": "Inscrições Abertas",
       "event": "Conferência"
     },
     "items": {
@@ -681,6 +799,11 @@
         "date": "Março 2027",
         "description": "Planejamento em desenvolvimento. Detalhes em breve.",
         "cta": "Notificar-me"
+      },
+      "chaincode2025": {
+        "date": "2025",
+        "description": "Programa especial em colaboração com Chaincode Labs para desenvolvedores avançados.",
+        "cta": "Mais informações"
       }
     }
   },
