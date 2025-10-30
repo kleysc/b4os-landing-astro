@@ -766,6 +766,11 @@
         "date": "Marzo 2027",
         "description": "Planificación en desarrollo. Detalles próximamente.",
         "cta": "Notificarme"
+      },
+      "chaincode2025": {
+        "date": "2025",
+        "description": "Programa especial en colaboración con Chaincode Labs para desarrolladores avanzados.",
+        "cta": "Más Información"
       }
     }
   },
