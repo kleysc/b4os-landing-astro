@@ -527,6 +527,9 @@ const reopenDate = import.meta.env.PUBLIC_REGISTRATION_REOPEN_DATE || '2025-10-2
                         </a>
                     </h3>
                     <div class="program-date">{t.programs?.items?.chaincode2025?.date || '2025'}</div>
+                    <p class="program-description">
+                        {t.programs?.items?.chaincode2025?.description || 'Programa especial en colaboración con Chaincode Labs para desarrolladores avanzados.'}
+                    </p>
                     <a href={`/${locale === 'es' ? '' : locale + '/'}enroll/chaincode-2025`} class="btn btn-yellow">
                         {t.programs?.items?.chaincode2025?.cta || 'Más Información'}
                     </a>
