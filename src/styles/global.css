@@ -441,6 +441,18 @@ body {
     color: var(--text-white);
 }
 
+.btn-yellow {
+    background: linear-gradient(135deg, #fed136, #f5c61f);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(254, 209, 54, 0.25);
+}
+
+.btn-yellow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(254, 209, 54, 0.35);
+    background: linear-gradient(135deg, #f5c61f, #e0b01d);
+}
+
 .btn-full {
     width: 100%;
     justify-content: center;
@@ -2358,7 +2370,7 @@ a:hover .sponsor-highlight {
 
 .programs-preview-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-xl);
     margin-bottom: var(--spacing-3xl);
 }
@@ -2367,7 +2379,7 @@ a:hover .sponsor-highlight {
     background: #ffffff;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -2392,11 +2404,24 @@ a:hover .sponsor-highlight {
     box-shadow: 0 8px 24px rgba(242, 169, 0, 0.25);
 }
 
+/* Yellow highlighted card (Chaincode) */
+.program-card-yellow {
+    background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
+    border: 2px solid #fed136;
+    box-shadow: 0 4px 12px rgba(254, 209, 54, 0.15);
+}
+
+.program-card-yellow:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(254, 209, 54, 0.25);
+    border-color: #f5c61f;
+}
+
 .program-card-preview .program-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     line-height: 1.2;
 }
 
@@ -2413,14 +2438,14 @@ a:hover .sponsor-highlight {
 .program-card-preview .program-date {
     color: var(--text-light);
     font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
 }
 
 .program-card-preview .program-description {
     color: var(--text-light);
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.6;
-    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    font-size: var(--font-size-sm);
     flex-grow: 1;
 }
 
