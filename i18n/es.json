@@ -700,6 +700,39 @@
       "highlight1": "En planificación",
       "highlight2": "Detalles próximamente",
       "highlight3": "Sé el primero en enterarte"
+    },
+    "chaincode2025": {
+      "subtitle": "Residencia con Chaincode Labs",
+      "dates": "2025",
+      "description": "Programa de residencia en colaboración con Chaincode Labs. Una oportunidad única para desarrolladores que buscan contribuir al desarrollo de Bitcoin y Lightning Network.",
+      "highlight1": "Residencia con Chaincode Labs",
+      "highlight2": "Mentorías especializadas",
+      "highlight3": "Enfoque en Bitcoin Core y Lightning"
+    },
+    "chaincode": {
+      "formDescription": "Completa el siguiente formulario para aplicar al programa de residencia con Chaincode Labs.",
+      "firstName": "Nombre / NYM",
+      "lastName": "Apellido / NYM",
+      "email": "Email",
+      "github": "Usuario de GitHub",
+      "githubHelp": "Solo el nombre de usuario, no la URL completa",
+      "linkedin": "LinkedIn (opcional)",
+      "seminarParticipation": "¿Participaste en seminarios de Chaincode Labs?",
+      "seminarOption1": "Sí, participé en el Start Your Career in Bitcoin Open Source Program",
+      "seminarOption2": "Sí, completé el seminario de Bitcoin Protocol y/o Lightning Protocol Development",
+      "seminarOption3": "Participé en un seminario, pero no lo completé",
+      "seminarOption4": "No",
+      "experience": "Experiencia en (opcional)",
+      "whyParticipate": "¿Por qué quieres participar?",
+      "goalAfterCompletion": "¿Cuál es tu objetivo después de completar el programa?",
+      "interestedProjects": "¿En qué proyectos estás interesado? (opcional)",
+      "referralSource": "¿Cómo te enteraste de este programa?",
+      "referralPlaceholder": "Si te refirió alguien, ¿quién?",
+      "submitButton": "Enviar Solicitud"
+    },
+    "register": {
+      "description": "Completa el formulario de registro para unirte a esta cohorte.",
+      "cta": "Ir al Formulario de Registro"
     }
   },
   "programsPreview": {

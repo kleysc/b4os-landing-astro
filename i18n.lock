@@ -26,6 +26,7 @@ checksums:
     nav/toggle_aria: 26e805d75af8e200036e1c77b1afd69d
     nav/objectives: d0b42acde0aeb40836582b3d87dfa7d3
     nav/alumni: c077d2d6841f500330f079ab00c70f1b
+    nav/programs: 3b4e365eff505c402685bdeefaa66d95
     nav/residences: 996149e8f913ffbdf84f2482c67304ca
     nav/schedule: c74c748c799dc9516937b8471bfc2e18
     nav/register: 38d54e5d817bfb14220015b0a2321392
@@ -56,7 +57,7 @@ checksums:
     alumni/linkedin_aria: 53598a231e5a2aeff0bec269f1415385
     alumni/twitter_aria: cab8c32e3aff53697c0ab04f33fbd7fd
     alumni/grantee_b4os: 4563f41ecc19e723fe0c42103c8c1503
-    alumni/grantee_b4os_localhost: b0aa51549af8f54257ede1b73d961780
+    alumni/grantee_b4os_localhost: 4563f41ecc19e723fe0c42103c8c1503
     alumni/grantee_spiral: d3e2fbf46b6532e7d236d6c553763086
     alumni/grantee_bdk: 4a7fb6eb68fbfb96a037091c56489c13
     alumni/grantee_whitenoise_b4os: 0c8d16504ed43db91ff842b706997bfc
@@ -134,7 +135,18 @@ checksums:
     registration/requirements/resilience: af842891833dfaecd97efce630231b57
     registration/requirements/spanish: 05ce58363ab94ce4a4cab179dd42d486
     registration/period/label: a0fc05149cd0b4a6f54b3dcec0e64977
-    registration/period/dates: 29260387043f912620a28a36ae4c2959
+    registration/period/dates: 3f0fa05d7639b0697b05b6ba32ffd677
+    registration/closed/badge_label: 24698bc46c4189b249e14857ce1c9fa4
+    registration/closed/badge_text: b136760fab817be6d6dfde717e98c0e7
+    registration/closed/title: b672bf2ae1d8c6e3114af354eebf43d9
+    registration/closed/subtitle: 0d90f6146b1da7edfb29f7a6e5dd3101
+    registration/closed/email_placeholder: feb99686688405b7ac395410a45e7a75
+    registration/closed/email_aria_label: f42ab75dac3cb47ec436f2b726287447
+    registration/closed/cta: f49497661d0ca437906fc64eeb504831
+    registration/closed/success_title: 65fcae716f89b85850c0bf697bf39af5
+    registration/closed/success_message: 99b9605785f6ff86225a446ab4d5f124
+    registration/closed/error_message: 77d6920b15218358157e499c0a7a7dd2
+    registration/closed/email_required: 6abd1c9ff3f5587bbcc046c18945c5db
     registration/form/title: 0f9ffb9f14aebee4b018f2a97d1773d1
     registration/form/aria_label: a76b95e4cd0df4201c9aabe7e7ecbfb6
     registration/form/name/label: 385ede445a7d152a62c1b730233d3c0d
@@ -163,8 +175,13 @@ checksums:
     registration/form/motivation/label: 12e0131ba483308676eb7de102c99df8
     registration/form/motivation/help: 0fb81784a05760db599594914fcdfacb
     registration/form/how_heard/label: d69d324c9005a19980e6cb02b03c2bc5
-    registration/form/how_heard/placeholder: 8d56132fd38786e73143f84b536a770d
-    registration/form/how_heard/help: 7cc7ace2e4d238db7d4d829b4abdd808
+    registration/form/how_heard/help: a390ef0ff2c71e18b5eb2d19a7674b65
+    registration/form/how_heard/options/libreria: 1d6e8378485eb5612af9cefe0ac3be51
+    registration/form/how_heard/options/bitcoinong_argentina: 1d6ac9ec6e4f1fd68c9021dfe5538948
+    registration/form/how_heard/options/world_liberty_congress: 37bdd1d91df3296c8fcc32187c99daf5
+    registration/form/how_heard/options/chaincode: 44f7ac8e0fa83cbb3b698f38fc61c262
+    registration/form/how_heard/options/others: 116cb394a03546d174e496132ca9ed61
+    registration/form/how_heard/others_placeholder: 8d702f5d4679aaed246bb47846f6ab38
     registration/form/terms/label: 97b8cabca25fb92b63f40b194af2db88
     registration/form/terms/help: cd2c58a137a3e88e874361f169a37055
     registration/form/terms/link_text: cc2cc10744634ecf4496c25a7abefb06
@@ -349,6 +366,130 @@ checksums:
     careers/cta/title: 96a0c61bfe3ed13eeaa51d6ccfcd2d19
     careers/cta/description: 2d64139be4e4ff7a9c5fa873d122593f
     careers/cta/button: a3b8e96141d5a66de99eea63ec27f305
+    enroll/meta/titleSuffix: 95e2c5b8f1a1afc2a817010a440a72c0
+    enroll/breadcrumb/programs: 3b4e365eff505c402685bdeefaa66d95
+    enroll/sections/about: 7cbededf412da798c06bc6de839b6bc7
+    enroll/sections/highlights: 1c1a597f2bd80968c58a99e08d534d23
+    enroll/sections/notify: 58c17e3b58643a4cd3c3e51d15f34313
+    enroll/sections/results: ec2a013579f60edd9bad79d3f3c1d24e
+    enroll/waitlist/description: 32f8d7d0a4c9c2d049d316e47ed971c1
+    enroll/waitlist/placeholder: feb99686688405b7ac395410a45e7a75
+    enroll/waitlist/cta: f49497661d0ca437906fc64eeb504831
+    enroll/results/description: ae657b4e4fa9cefb3dcb321bfec764cf
+    enroll/sidebar/title: e0070186cf5eeb87bc1247702a15a391
+    enroll/sidebar/status: 24698bc46c4189b249e14857ce1c9fa4
+    enroll/sidebar/dates: 3f528d83158af9124efb8511b37c49bc
+    enroll/sidebar/back: a2ce65fc91d24036c77e85d00cc186c5
+    enroll/b4os2024/subtitle: c2b47395a12cfef3514b5b784906c1c5
+    enroll/b4os2024/dates: 107f886502ec05a50e4c3799e0c85721
+    enroll/b4os2024/description: 8a24334e05a800e0099b4900d901e264
+    enroll/b4os2024/highlight1: 078c2fa5411eccd2063479e42080c680
+    enroll/b4os2024/highlight2: c367902e4589e091d9a9aea691b98ee7
+    enroll/b4os2024/highlight3: 311f8d837e2b1f89b59e692647108666
+    enroll/b4os2025_1/subtitle: 039b09a9ed151d63cfcb3afb704b541e
+    enroll/b4os2025_1/dates: d09e9724569f1bd65c1c47a5b3f12d7b
+    enroll/b4os2025_1/description: c60e0daf282d4e1f6a61d5ee156461d2
+    enroll/b4os2025_1/highlight1: 7a10a60fcaa6bb7af15a0e763391f0c1
+    enroll/b4os2025_1/highlight2: 3484183920a74cc3ed3ce844ca7628f4
+    enroll/b4os2025_1/highlight3: e32926d1b2aa9a6c03328a75957aaa72
+    enroll/b4os2025_2/subtitle: 72ac2b07842293b31e782b73ff830495
+    enroll/b4os2025_2/dates: 05c433904aba56ecfa75a08d9a5822aa
+    enroll/b4os2025_2/description: 93049af3141dd914a681f551c7eb3c6c
+    enroll/b4os2025_2/highlight1: d3450012c9b57004f60e238ccf6555e2
+    enroll/b4os2025_2/highlight2: 9128af3615b05c0059259d95515cf305
+    enroll/b4os2025_2/highlight3: a6d68170f8470e43e75d2fa62bf3d64a
+    enroll/b4os2026_1/subtitle: e09fb73641feeacc73a7fae7b78319a2
+    enroll/b4os2026_1/dates: 75a492883c2a76f741fbb19555334889
+    enroll/b4os2026_1/description: 5fd9ea9d7c12d231eb98aa008690370d
+    enroll/b4os2026_1/highlight1: e09fb73641feeacc73a7fae7b78319a2
+    enroll/b4os2026_1/highlight2: 082d6ce55aebbfeeaa4d8f5f0d95ab25
+    enroll/b4os2026_1/highlight3: dbffc63115a26cb1a7ce30211496c0c9
+    enroll/b4os2026_2/subtitle: 7fecc00ee338909b801dae63c2b435cf
+    enroll/b4os2026_2/dates: f704c330d08d125e70435263196af623
+    enroll/b4os2026_2/description: 7ab29e9299b6612107814947fe547681
+    enroll/b4os2026_2/highlight1: d235341c14aca6280f1f47e4821aa379
+    enroll/b4os2026_2/highlight2: 47f4d875d7c4961342a0931484130b85
+    enroll/b4os2026_2/highlight3: 45dcfd85228ca3216541d133b7584ef8
+    enroll/conferencia2026/title: 93d95e64f89914a567eb7282781704e1
+    enroll/conferencia2026/subtitle: 443ad387cc79d876196594310bc0e8e0
+    enroll/conferencia2026/dates: 7e7ccc33bf03688babe00884e7572792
+    enroll/conferencia2026/description: fcf9b797fe404c95e0e944d936127a70
+    enroll/conferencia2026/highlight1: 4144fc37274eafe4085c73838b7d2934
+    enroll/conferencia2026/highlight2: 6b5ca7a000e47f7875fb8b86bef95cf2
+    enroll/conferencia2026/highlight3: cbea55994c67f5b973997ba8cba182db
+    enroll/b4os2027/subtitle: fb5f70c2550ca3adf9e0ca4611748fc2
+    enroll/b4os2027/dates: 6d44e7011eec78569c723b7d4de033ce
+    enroll/b4os2027/description: 6972178bf17537dc164909accd638ddb
+    enroll/b4os2027/highlight1: 7fecc00ee338909b801dae63c2b435cf
+    enroll/b4os2027/highlight2: 47f4d875d7c4961342a0931484130b85
+    enroll/b4os2027/highlight3: e25e95f2b3a8e29430ab013027b0fbd6
+    enroll/chaincode2025/subtitle: 7bdbbad3c8c6b7e5528d27ab65448d3a
+    enroll/chaincode2025/description: 10eb0fb16374143f4341000abd0bd4cb
+    enroll/chaincode2025/highlight1: 7bdbbad3c8c6b7e5528d27ab65448d3a
+    enroll/chaincode2025/highlight2: e32926d1b2aa9a6c03328a75957aaa72
+    enroll/chaincode2025/highlight3: 14184adbf24c3c4725e2259a589bb455
+    enroll/chaincode/formDescription: 90ec85b87de620e4d27bfc2d38d7675a
+    enroll/chaincode/firstName: b8dba4539e36d6f07998526319b65c1c
+    enroll/chaincode/lastName: a671dabd9eb8d894ddb2beb143353ff1
+    enroll/chaincode/email: e7f34943a0c2fb849db1839ff6ef5cb5
+    enroll/chaincode/github: d1ab4d6bd4a8591c3850c4c80079fa73
+    enroll/chaincode/githubHelp: 56fe6cc147a8e00a253e8039c82726f0
+    enroll/chaincode/linkedin: 0fa30f4e58a2864e61c291a1b0a65c26
+    enroll/chaincode/seminarParticipation: c2ff09f0b3ef58c3eac9f7f8f7059389
+    enroll/chaincode/seminarOption1: 2d991e9e44bcca0e50b0977a6cf82322
+    enroll/chaincode/seminarOption2: 90b7f631493c1ac75cbecce4f5096aed
+    enroll/chaincode/seminarOption3: 3cef6d9af9e8f2c9d2e714fb0adde810
+    enroll/chaincode/seminarOption4: 8c708225830b06df2d1141c536f2a0d6
+    enroll/chaincode/experience: baca044bd9fa958eb33c31f5cca04530
+    enroll/chaincode/whyParticipate: 4f04044669656ddbbd8be292fac385bb
+    enroll/chaincode/goalAfterCompletion: e18e79e96620e7c1bcece4cab079b5e6
+    enroll/chaincode/interestedProjects: 6651b801c024a380aaba05b485bc20d4
+    enroll/chaincode/referralSource: f6f44e3cc520365d9724abde353d1584
+    enroll/chaincode/referralPlaceholder: 81f6d254cb4de779ae851f89bef7d07e
+    enroll/chaincode/submitButton: e839c74acd45e38529cffbbc0ecc069a
+    enroll/register/description: 97547a8ca114fc50fa5fd1b2666de690
+    enroll/register/cta: bb2c3d4681e0801b9fdf442c2c786224
+    programsPreview/title: 3b9e4222eb8fd6a44b8ea4bd1f994c4e
+    programsPreview/subtitle: 070d43f474ef70bef7f27f0d1aec78dc
+    programsPreview/viewAll: ecbcb0d6911d64bfe5e40748c02370a9
+    programs/meta/title: 45f63761d775e097f4f06cc116d28561
+    programs/meta/description: 8664f7eeb568b7666fb8d52560a22ee9
+    programs/backToHome: 963f4717e252f56c5a46b1336ad80bef
+    programs/hero/description: 21787fd14adaea687bf3bc05b6d2bcb5
+    programs/filters/all: 7aca895b8056de3b989b9c8fad8bc3f6
+    programs/filters/open: 52758d65140a4bb91572b92f092ba370
+    programs/filters/upcoming: 331d0f2859ecdfa06ad785eb97f73160
+    programs/filters/completed: 8898007b5d3db5efeaa3b900adf11357
+    programs/filters/events: e13b8b68d88285f2ecfc20a32cdaaea9
+    programs/statusLabels/completed: f79d02bd2e5ef39c34380f499c8ef518
+    programs/statusLabels/in-progress: c40b122f7c8549e3c381dc8ae48e0d12
+    programs/statusLabels/upcoming: 7cca32946f9b763e9c6f4b2eae3b2d26
+    programs/statusLabels/open: c368c887dc605142ca538d9cf55da5d1
+    programs/statusLabels/event: a68cdd1bbc7212c11cb09dc28b781d2b
+    programs/items/b4os2024/date: 107f886502ec05a50e4c3799e0c85721
+    programs/items/b4os2024/description: 921615c49b47e3e9502d6d60ba3a33c3
+    programs/items/b4os2024/cta: 2fc4be891219d75feaaa3fc83d2e7e0d
+    programs/items/b4os2025_1/date: 299b056c70c02fa3ca629b95c558017c
+    programs/items/b4os2025_1/description: 2688af457ede438ef50584f479f6dbb8
+    programs/items/b4os2025_1/cta: fb0e78174d5e05abfd3f4b43a84eb261
+    programs/items/b4os2025_2/date: 05c433904aba56ecfa75a08d9a5822aa
+    programs/items/b4os2025_2/description: eda5cf2699d04d9750274fb35704f880
+    programs/items/b4os2025_2/cta: 3e7c08333f0befc0dda19e1d9a02ac2a
+    programs/items/b4os2026_1/date: 75a492883c2a76f741fbb19555334889
+    programs/items/b4os2026_1/description: 46783787729a1ec4415553c56c7500a6
+    programs/items/b4os2026_1/cta: f49497661d0ca437906fc64eeb504831
+    programs/items/b4os2026_2/date: f704c330d08d125e70435263196af623
+    programs/items/b4os2026_2/description: e95c062b8d965d82633c855224f3201d
+    programs/items/b4os2026_2/cta: f49497661d0ca437906fc64eeb504831
+    programs/items/conferencia2026/title: 93d95e64f89914a567eb7282781704e1
+    programs/items/conferencia2026/date: 7e7ccc33bf03688babe00884e7572792
+    programs/items/conferencia2026/description: 576fec414ada0fc6ffc66bfe2f47f752
+    programs/items/conferencia2026/cta: 5a2f30d01d9a41ec326314dfc80b9947
+    programs/items/b4os2027/date: 6d44e7011eec78569c723b7d4de033ce
+    programs/items/b4os2027/description: b10b961aa7d90cb28ee895252bd35a36
+    programs/items/b4os2027/cta: f49497661d0ca437906fc64eeb504831
+    programs/items/chaincode2025/description: f841fa9e1f15e5080db97f5ddb21a3eb
+    programs/items/chaincode2025/cta: 5a2f30d01d9a41ec326314dfc80b9947
     footer/logo_alt: e632f62da421be89d63f013eff260f59
     footer/description: 53ba421f4c640bb2b5d33095a6653e57
     footer/quick_links/title: 7261cfd749bf1f4d43928835586012e5
