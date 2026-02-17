@@ -131,7 +131,7 @@
     "start_label": "Start",
     "location_label": "Location",
     "status_confirmed": "Confirmed",
-    "status_pending": "To be confirmed",
+    "status_pending": "Date to be confirmed",
     "status_completed": "Completed",
     "status_cancelled": "Cancelled",
     "southamerica": {
