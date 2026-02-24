@@ -726,6 +726,15 @@
       "button": "View opportunities"
     }
   },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Get the latest updates and announcements directly to your inbox.",
+    "placeholder": "Your email address",
+    "subscribe_button": "Subscribe",
+    "success_message": "Successfully subscribed!",
+    "error_message": "Subscription failed. Please try again.",
+    "loading_message": "Subscribing..."
+  },
   "footer": {
     "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
     "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong> - Free technical Bitcoin training program for developers.",

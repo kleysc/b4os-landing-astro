@@ -10,6 +10,7 @@ import Benefits from '../components/benefits.astro';
 import LanguageSelector from '../components/languageSelector.astro';
 import TimelineCompact from '../components/TimelineCompact.astro';
 import AlumniTabs from '../components/AlumniTabs.astro';
+import NewsletterSubscription from '../components/NewsletterSubscription/NewsletterSubscription.astro';
 
 // Importar datos centralizados
 import residenciesStatus from '../data/residencies-status.json';
@@ -713,6 +714,8 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                     </ul>
                 </nav>
                 
+                
+
                 <div class="footer-section">
                     <h4>{t.footer.contact.title}</h4>
                     <div class="contact-info">
@@ -743,6 +746,10 @@ const getResidencyBadgeLabel = (status: ResidencyStatus, t: any): string => {
                         </div>
                     </div>
                 </div>
+
+                {/* Newsletter Subscription Component */}
+                <NewsletterSubscription layout="stacked" locale={locale} t={t} />
+                
             </div>
             
             <div class="footer-bottom">

@@ -726,6 +726,15 @@
       "button": "Veure oportunitats"
     }
   },
+  "newsletter": {
+    "title": "Subscriu-te al nostre butlletí",
+    "description": "Rep les últimes novetats i notícies directament a la teva bústia.",
+    "placeholder": "El teu correu electrònic",
+    "subscribe_button": "Subscriure's",
+    "success_message": "Subscripció completada!",
+    "error_message": "Error en la subscripció. Torna-ho a provar.",
+    "loading_message": "Subscrivint..."
+  },
   "footer": {
     "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",
     "description": "<strong>B4OS (Bitcoin 4 Open Source)</strong> - Programa gratuït d'entrenament tècnic en Bitcoin per a desenvolupadors.",

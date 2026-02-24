@@ -28,20 +28,17 @@ class TwitterSectionTracker {
             this.setupIntersectionObserver();
             this.setupClickTracking();
             this.setupFormTracking();
-            console.log('Twitter Section Tracker initialized');
         });
     }
 
     waitForTwitter(callback, maxAttempts = 50) {
         let attempts = 0;
         const checkTwitter = () => {
-            if (typeof window.twq !== 'undefined') {
+            if (globalThis.twq !== 'undefined') {
                 callback();
             } else if (attempts < maxAttempts) {
                 attempts++;
                 setTimeout(checkTwitter, 100);
-            } else {
-                console.warn('Twitter pixel not loaded after maximum attempts');
             }
         };
         checkTwitter();
@@ -132,12 +129,11 @@ class TwitterSectionTracker {
 
         const section = this.sections.find(s => s.id === sectionId);
         if (section) {
-            window.twq('event', 'view_content', {
+            globalThis.twq('event', 'view_content', {
                 content_type: 'section',
                 content_name: section.name,
                 content_id: sectionId
             });
-            console.log(`Tracked section view: ${section.name}`);
         }
     }
 
@@ -146,7 +142,7 @@ class TwitterSectionTracker {
 
         const section = this.sections.find(s => s.id === sectionId);
         if (section) {
-            window.twq('event', 'click', {
+            globalThis.twq('event', 'click', {
                 content_type: 'navigation',
                 content_name: `Navigate to ${section.name}`,
                 content_id: sectionId
@@ -157,7 +153,7 @@ class TwitterSectionTracker {
     trackExternalClick(url) {
         if (!this.isReady) return;
 
-        window.twq('event', 'click', {
+        globalThis.twq('event', 'click', {
             content_type: 'external_link',
             content_name: 'External Link Click',
             url: url
@@ -167,7 +163,7 @@ class TwitterSectionTracker {
     trackCTAClick(buttonText, section) {
         if (!this.isReady) return;
 
-        window.twq('event', 'click', {
+        globalThis.twq('event', 'click', {
             content_type: 'cta',
             content_name: buttonText,
             section: section
@@ -177,7 +173,7 @@ class TwitterSectionTracker {
     trackFormStart() {
         if (!this.isReady) return;
 
-        window.twq('event', 'lead', {
+        globalThis.twq('event', 'lead', {
             content_type: 'form',
             content_name: 'Registration Form Started'
         });
@@ -186,7 +182,7 @@ class TwitterSectionTracker {
     trackFormSubmit() {
         if (!this.isReady) return;
 
-        window.twq('event', 'complete_registration', {
+        globalThis.twq('event', 'complete_registration', {
             content_type: 'form',
             content_name: 'Registration Form Submitted'
         });
@@ -195,7 +191,7 @@ class TwitterSectionTracker {
     trackFieldFocus(fieldName) {
         if (!this.isReady) return;
 
-        window.twq('event', 'view_content', {
+        globalThis.twq('event', 'view_content', {
             content_type: 'form_field',
             content_name: `Field Focus: ${fieldName}`,
             field_name: fieldName
@@ -205,7 +201,7 @@ class TwitterSectionTracker {
     findNearestSection(element) {
         let current = element;
         while (current && current !== document.body) {
-            if (current.id && this.sections.find(s => s.id === current.id)) {
+            if (current.id && this.sections.some(s => s.id === current.id)) {
                 return current.id;
             }
             current = current.parentElement;
@@ -217,18 +213,18 @@ class TwitterSectionTracker {
     trackCustomEvent(eventType, data = {}) {
         if (!this.isReady) return;
 
-        window.twq('event', eventType, data);
+        globalThis.twq('event', eventType, data);
     }
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        window.twitterTracker = new TwitterSectionTracker();
+        globalThis.twitterTracker = new TwitterSectionTracker();
     });
 } else {
-    window.twitterTracker = new TwitterSectionTracker();
+    globalThis.twitterTracker = new TwitterSectionTracker();
 }
 
 // Export for global access
-window.TwitterSectionTracker = TwitterSectionTracker;
+globalThis.TwitterSectionTracker = TwitterSectionTracker;

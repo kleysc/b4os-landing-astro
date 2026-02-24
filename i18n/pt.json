@@ -705,7 +705,7 @@
   },
   "careers": {
     "title": "Junte-se à Nossa Equipe",
-    "subtitle": "Estamos construindo o futuro da educação técnica de <strong>Bitcoin</strong>. <br>Buscamos pessoas apaixonadas que compartilhem nossa visão de formar a próxima geração de talentos no ecossistema Bitcoin: educação técnica e empreendedorismo especializado",
+    "subtitle": "Estamos construindo o futuro da educação técnica de <strong>Bitcoin</strong>. <br>Buscamos pessoas apaixonadas que compartilham nossa visão de formar a próxima geração de talentos no ecossistema Bitcoin: educação técnica e empreendedorismo especializado",
     "highlights": {
       "remote": {
         "title": "100% Remoto",
@@ -721,10 +721,19 @@
       }
     },
     "cta": {
-      "title": "Interessado em se juntar?",
-      "description": "Atualmente temos posições abertas. Confira nossas oportunidades disponíveis.",
+      "title": "Interessado em participar?",
+      "description": "Atualmente, temos posições abertas. Confira nossas oportunidades disponíveis.",
       "button": "Ver Oportunidades"
     }
+  },
+  "newsletter": {
+    "title": "Assine nossa newsletter",
+    "description": "Receba as últimas atualizações e notícias diretamente na sua caixa de entrada.",
+    "placeholder": "Seu e-mail",
+    "subscribe_button": "Assinar",
+    "success_message": "Inscrição realizada com sucesso!",
+    "error_message": "Falha na inscrição. Tente novamente.",
+    "loading_message": "Assinando..."
   },
   "footer": {
     "logo_alt": "B4OS - Bitcoin 4 Open Source Logo",

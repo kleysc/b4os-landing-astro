@@ -1,0 +1,64 @@
+---
+import styles from './NewsletterSubscription.module.css';
+import type { NewsletterProps } from './types.ts';
+
+const {
+  layout = 'stacked',
+  title,
+  description,
+  placeholder,
+  buttonText,
+  locale = 'es',
+  t
+} = Astro.props as NewsletterProps;
+
+// Get texts from t or fallbacks
+const displayTitle = title || (t?.newsletter?.title ?? 'Subscribe to our newsletter');
+const displayDesc = description || (t?.newsletter?.description ?? 'Get the latest updates and announcements directly to your inbox.');
+const displayPlaceholder = placeholder || (t?.newsletter?.placeholder ?? 'Enter your email');
+const displayBtn = buttonText || (t?.newsletter?.subscribe_button ?? 'Subscribe');
+const successMsg = t?.newsletter?.success_message ?? 'Successfully subscribed!';
+const errorMsg = t?.newsletter?.error_message ?? 'Subscription failed. Please try again.';
+const loadingMsg = t?.newsletter?.loading_message ?? 'Subscribing...';
+
+// Generate class names based on layout
+const layoutClass = layout === 'inline' ? styles.layoutInline : (layout === 'card' ? styles.layoutCard : styles.layoutStacked);
+---
+
+<div class={`footer-section newsletter-component ${styles.newsletterSection} ${layoutClass}`}>
+  {displayTitle && <h4 class={styles.title}>{displayTitle}</h4>}
+  {displayDesc && <p class={styles.description}>{displayDesc}</p>}
+  
+  <form 
+    class={styles.form} 
+    data-success-msg={successMsg}
+    data-error-msg={errorMsg}
+    data-class-message={styles.message}
+    data-class-show={styles.messageShow}
+    data-class-success={styles.success}
+    data-class-error={styles.error}
+    data-class-info={styles.info}
+  >
+    <div class={styles.inputGroup}>
+      <input 
+        type="email" 
+        class={styles.input} 
+        placeholder={displayPlaceholder} 
+        required 
+        aria-label={displayPlaceholder}
+      />
+    </div>
+    <button 
+      type="submit" 
+      class={styles.button}
+      data-text={displayBtn}
+      data-loading-text={loadingMsg}
+    >
+      {displayBtn}
+    </button>
+  </form>
+  
+  <div class={styles.message} data-newsletter-message aria-live="polite"></div>
+</div>
+
+<script src="./newsletter-subscription.ts"></script>
