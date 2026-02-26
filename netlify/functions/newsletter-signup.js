@@ -9,7 +9,7 @@ const cio = new CustomerIO(
 );
 
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^(?=([^\s@]+))\1@(?=([^\s@]+))\2\.(?=([^\s@]+))\3$/;
   return emailRegex.test(email);
 }
 

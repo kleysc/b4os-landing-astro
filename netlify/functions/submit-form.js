@@ -24,7 +24,7 @@ function validateFormData(formData) {
     return { error: 'Missing required fields', missingFields };
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^(?=([^\s@]+))\1@(?=([^\s@]+))\2\.(?=([^\s@]+))\3$/;
   if (!emailRegex.test(formData.email)) {
     return { error: 'Invalid email format' };
   }
