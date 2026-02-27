@@ -213,7 +213,7 @@ globalThis.FormHandler = class FormHandler {
     let message = "";
 
     if (field.type === "email") {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^(?=([^\s@]+))\1@(?=([^\s@]+))\2\.(?=([^\s@]+))\3$/;
       if (value && !emailRegex.test(value)) {
         isValid = false;
         message = "Por favor ingresa un email válido";
@@ -370,7 +370,7 @@ globalThis.FormHandler = class FormHandler {
 
     // Validar email
     const email = formData.get("email");
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^(?=([^\s@]+))\1@(?=([^\s@]+))\2\.(?=([^\s@]+))\3$/;
     if (email && !emailRegex.test(email)) {
       errors.push("Por favor ingresa un email válido");
     }

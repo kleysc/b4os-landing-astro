@@ -45,17 +45,33 @@ export class NewsletterSubscription {
         this.hideMessage();
 
         try {
-            // Simulate API call, here we can integrate with a real endpoint later
-            await new Promise(resolve => setTimeout(resolve, 800));
+            const response = await fetch('/.netlify/functions/newsletter-signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
 
-            this.showMessage('success', this.form.dataset.successMsg || 'Successfully subscribed!');
-            this.form.reset();
+            const data = await response.json().catch(() => ({}));
+            const successMsg = this.form.dataset.successMsg || 'Successfully subscribed!';
+            const errorMsg = this.form.dataset.errorMsg || 'Subscription failed. Please try again.';
+
+            const isLocal = typeof window !== 'undefined' && /localhost|127\.0\.0\.1/.test(window.location?.hostname || '');
+            if (isLocal && response.status === 404) {
+                this.showMessage('success', successMsg);
+                this.form.reset();
+                this.setLoading(false);
+                return;
+            }
+
+            if (response.ok && data.success) {
+                this.showMessage('success', data.message || successMsg);
+                this.form.reset();
+            } else {
+                this.showMessage('error', data.message || errorMsg);
+            }
         } catch (error) {
-            // Log the error for debugging
-            console.error('Newsletter subscription error:', error);
-            
-            const errorMessage = error instanceof Error ? error.message : 'Subscription failed. Please try again.';
-            this.showMessage('error', this.form.dataset.errorMsg || errorMessage);
+            const errorMessage = error instanceof Error ? error.message : (this.form.dataset.errorMsg || 'Subscription failed. Please try again.');
+            this.showMessage('error', errorMessage);
         } finally {
             this.setLoading(false);
         }

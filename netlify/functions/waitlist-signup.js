@@ -94,6 +94,6 @@ export const handler = async (event) => {
 
 // Función auxiliar para validar email
 function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^(?=([^\s@]+))\1@(?=([^\s@]+))\2\.(?=([^\s@]+))\3$/;
     return emailRegex.test(email);
 }
